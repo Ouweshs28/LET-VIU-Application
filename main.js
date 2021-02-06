@@ -38,7 +38,7 @@ function generateBotChat(text){
 
 function botReply(message){
     const speech= new SpeechSynthesisUtterance();
-    speech.text="I am fine thank you";
+    speech.text="Sorry i cannot understand, please try againn.";
 
     // logic
 
