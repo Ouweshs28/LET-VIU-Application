@@ -8,6 +8,39 @@ recorder.onstart = ()=>{
     console.log("Voice Activated");
 };
 
+function generateReference(title, criteria, example,url){
+    const refCard=document.createElement("div");
+    refCard.classList.add("card");
+    const cardHeader=document.createElement("h5");
+    cardHeader.classList.add("card-header");
+    cardHeader.classList.add("text-black-50");
+    const refText=document.createTextNode(title);
+    cardHeader.appendChild(refText);
+    const cardBody=document.createElement('div');
+    cardBody.classList.add("card-body");
+    const cardPara=document.createElement("p");
+    cardPara.classList.add("card-text");
+    const criteriaImg = document.createElement('img');
+    criteriaImg.src = criteria;
+    const criteriaEx = document.createElement('img');
+    criteriaEx.src = example;
+    cardPara.appendChild(criteriaImg);
+    cardPara.appendChild(criteriaEx);
+    cardBody.appendChild(cardPara);
+    const anchorLink =document.createElement("a");
+    anchorLink.oncanplaythrough=url;
+    anchorLink.classList.add("btn");
+    anchorLink.classList.add("btn-primary");
+    const moreInfoText=document.createTextNode("More info");
+    anchorLink.appendChild(moreInfoText);
+    cardBody.appendChild(anchorLink);
+    refCard.appendChild(cardHeader);
+    refCard.appendChild(cardBody);
+    return refCard;
+
+
+}
+
 function generateChat(text){
     const alertContainer=document.createElement("div");
     alertContainer.classList.add("alert");
