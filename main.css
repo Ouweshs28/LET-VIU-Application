@@ -24,3 +24,11 @@ body {
 .cover-container {
     max-width: 42em;
 }
+
+.btn{
+    margin-right: 10px;
+}
+
+.card{
+    margin-bottom:5%
+}

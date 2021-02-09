@@ -37,8 +37,52 @@ function generateReference(title, criteria, example,url){
     refCard.appendChild(cardHeader);
     refCard.appendChild(cardBody);
     return refCard;
+}
 
-
+function genPrograming(language,imgurl,btn1,link1,btn2,link2,btn3,link3){
+    const refCard=document.createElement("div");
+    refCard.classList.add("card");
+    const cardHeader=document.createElement("h5");
+    cardHeader.classList.add("card-header");
+    cardHeader.classList.add("text-black-50");
+    const refText=document.createTextNode(language);
+    cardHeader.appendChild(refText);
+    const cardBody=document.createElement('div');
+    cardBody.classList.add("card-body");
+    const cardPara=document.createElement("p");
+    cardPara.classList.add("card-text");
+    const programingImg = document.createElement('img');
+    programingImg.classList.add("card-img-top")
+    programingImg.src = imgurl;
+    cardPara.appendChild(programingImg);
+    cardBody.appendChild(cardPara);
+    const anchorLink =document.createElement("a");
+    anchorLink.href=link1;
+    anchorLink.classList.add("btn");
+    anchorLink.classList.add("btn-primary");
+    anchorLink.target='_blank'
+    const btnInfo=document.createTextNode(btn1);
+    anchorLink.appendChild(btnInfo);
+    cardBody.appendChild(anchorLink);
+    const anchorLink2 =document.createElement("a");
+    anchorLink2.href=link2;
+    anchorLink2.classList.add("btn");
+    anchorLink2.classList.add("btn-primary");
+    anchorLink2.target='_blank'
+    const btnInfo2=document.createTextNode(btn2);
+    anchorLink2.appendChild(btnInfo2);
+    cardBody.appendChild(anchorLink2);
+    const anchorLink3 =document.createElement("a");
+    anchorLink3.href=link3;
+    anchorLink3.classList.add("btn");
+    anchorLink3.classList.add("btn-primary");
+    anchorLink3.target='_blank'
+    const btnInfo3=document.createTextNode(btn3);
+    anchorLink3.appendChild(btnInfo3);
+    cardBody.appendChild(anchorLink3);
+    refCard.appendChild(cardHeader);
+    refCard.appendChild(cardBody);
+    return refCard;
 }
 
 function generateChat(text){
@@ -95,5 +139,14 @@ recorder.onresult = (event) =>{
 
 voice.addEventListener('click',()=>{
     recorder.start();
+ /*   let elem =document.getElementById("main-container")
+    elem.appendChild(genPrograming("Java",
+        "images/programming/java.png",
+        "Oracle",
+        "https://docs.oracle.com/javase/tutorial/",
+        "Code Academy",
+        "https://www.codecademy.com/learn/learn-java",
+        "W3School",
+        "https://www.w3schools.com/java/"));*/
 });
 
