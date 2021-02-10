@@ -31,6 +31,7 @@ function generateReference(title, criteria, example,url){
     anchorLink.oncanplaythrough=url;
     anchorLink.classList.add("btn");
     anchorLink.classList.add("btn-primary");
+    anchorLink.target='_blank'
     const moreInfoText=document.createTextNode("More info");
     anchorLink.appendChild(moreInfoText);
     cardBody.appendChild(anchorLink);
@@ -59,6 +60,7 @@ function genPrograming(language,imgurl,btn1,link1,btn2,link2,btn3,link3){
     const anchorLink =document.createElement("a");
     anchorLink.href=link1;
     anchorLink.classList.add("btn");
+    anchorLink.classList.add("btnProg");
     anchorLink.classList.add("btn-primary");
     anchorLink.target='_blank'
     const btnInfo=document.createTextNode(btn1);
@@ -67,6 +69,7 @@ function genPrograming(language,imgurl,btn1,link1,btn2,link2,btn3,link3){
     const anchorLink2 =document.createElement("a");
     anchorLink2.href=link2;
     anchorLink2.classList.add("btn");
+    anchorLink2.classList.add("btnProg");
     anchorLink2.classList.add("btn-primary");
     anchorLink2.target='_blank'
     const btnInfo2=document.createTextNode(btn2);
@@ -75,6 +78,7 @@ function genPrograming(language,imgurl,btn1,link1,btn2,link2,btn3,link3){
     const anchorLink3 =document.createElement("a");
     anchorLink3.href=link3;
     anchorLink3.classList.add("btn");
+    anchorLink3.classList.add("btnProg");
     anchorLink3.classList.add("btn-primary");
     anchorLink3.target='_blank'
     const btnInfo3=document.createTextNode(btn3);
@@ -115,7 +119,7 @@ function generateBotChat(text){
 
 function botReply(message){
     const speech= new SpeechSynthesisUtterance();
-    speech.text="Sorry i cannot understand, please try againn.";
+    speech.text="Sorry i cannot understand, please try again.";
 
     // logic
 
@@ -139,14 +143,7 @@ recorder.onresult = (event) =>{
 
 voice.addEventListener('click',()=>{
     recorder.start();
- /*   let elem =document.getElementById("main-container")
-    elem.appendChild(genPrograming("Java",
-        "images/programming/java.png",
-        "Oracle",
-        "https://docs.oracle.com/javase/tutorial/",
-        "Code Academy",
-        "https://www.codecademy.com/learn/learn-java",
-        "W3School",
-        "https://www.w3schools.com/java/"));*/
+ let elem =document.getElementById("main-container")
+
 });
 

@@ -25,10 +25,16 @@ body {
     max-width: 42em;
 }
 
-.btn{
+.btnProg{
     margin-right: 10px;
 }
 
 .card{
     margin-bottom:5%
 }
+
+#main-container{
+    position: relative;
+}
+
+
