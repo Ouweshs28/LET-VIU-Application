@@ -7,6 +7,237 @@ const recorder =new SpeechRecognition();
 recorder.onstart = ()=>{
     console.log("Voice Activated");
 };
+//programming variables
+const java=[
+    {
+        "name":"Oracle",
+        "url":"https://docs.oracle.com/javase/tutorial/"
+    },
+    {
+        "name":"Code Academy",
+        "url":"https://www.codecademy.com/learn/learn-java"
+    },
+    {
+        "name":"W3School",
+        "url":"https://www.w3schools.com/java/"
+    }
+
+];
+
+const python=[
+    {
+        "name":"Python Doc",
+        "url":"https://wiki.python.org/moin/BeginnersGuide/NonProgrammers"
+    },
+    {
+        "name":"Learn Python",
+        "url":"https://www.learnpython.org/"
+    },
+    {
+        "name":"W3School",
+        "url":"https://www.w3schools.com/python/"
+    }
+
+];
+
+const cprog=[
+    {
+        "name":"Learn C",
+        "url":"https://www.learn-c.org/"
+    },
+    {
+        "name":"Code Camp",
+        "url":"https://www.freecodecamp.org/news/the-c-beginners-handbook/"
+    },
+    {
+        "name":"W3School",
+        "url":"https://www.w3schools.in/c-tutorial/"
+    }
+
+];
+
+const cplus=[
+    {
+        "name":"Code Academy",
+        "url":"https://www.codecademy.com/learn/learn-c-plus-plus"
+    },
+    {
+        "name":"LearnCpp",
+        "url":"https://www.learncpp.com/"
+    },
+    {
+        "name":"W3School",
+        "url":"https://www.w3schools.com/cpp/"
+    }
+
+];
+
+const js=[
+    {
+        "name":"Mozilla",
+        "url":"https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+    },
+    {
+        "name":"Javascript Info",
+        "url":"https://javascript.info/"
+    },
+    {
+        "name":"W3School",
+        "url":"https://www.w3schools.com/js/DEFAULT.asp"
+    }
+
+];
+
+const php=[
+    {
+        "name":"PHP Documentation",
+        "url":"https://www.php.net/manual/en/langref.php"
+    },
+    {
+        "name":"LearnPhp",
+        "url":"https://www.learn-php.org/"
+    },
+    {
+        "name":"W3School",
+        "url":"https://www.w3schools.com/php/"
+    }
+
+];
+
+const ardiuno=[
+    {
+        "name":"Tutorials Point",
+        "url":"https://www.tutorialspoint.com/arduino/index.html"
+    },
+    {
+        "name":"Arduino",
+        "url":"https://www.arduino.cc/en/Tutorial/HomePage"
+    },
+    {
+        "name":"Programing Electronics",
+        "url":"https://www.programmingelectronics.com/free-arduino-guides-and-resources/"
+    }
+
+];
+
+//referencing variables
+
+const webpages={
+    "btn":"Website",
+    "name":"Web pages with organisations as authors",
+    "criteria":"images/referencing/website-criteria.PNG",
+    "example":"images/referencing/website.PNG",
+    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/digital-internet/the-internet/web-pages-with-organisations-as-authors"
+}
+
+const books={
+    "btn":"Book",
+    "name":"Printed books",
+    "criteria":"images/referencing/book-criteria.PNG",
+    "example":"images/referencing/book.PNG",
+    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/books/printed-books"
+}
+
+const journal={
+    "btn":"Journal",
+    "name":"Journal articles",
+    "criteria":"images/referencing/journal-criteria.PNG",
+    "example":"images/referencing/journal.PNG",
+    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/journals/journal-articles"
+}
+
+const ebook={
+    "btn":"E-Book",
+    "name":"Electronic books (ebooks)",
+    "criteria":"images/referencing/ebook-criteria.PNG",
+    "example":"images/referencing/ebook.PNG",
+    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/books/electronic-books-ebooks"
+}
+
+// academic writing variables
+const litreview={
+    "btn":"Literature Review",
+    "name":"Literature Review",
+    "criteria":"images/accadmicwritting/litreview-aim.png",
+    "example":"images/accadmicwritting/litreview.png",
+    "url":"https://leumdxmru.edublogs.org/letsson/what-is-a-literature-review/"
+}
+
+const report={
+    "btn":"Report",
+    "name":"Report Writting",
+    "criteria":"images/accadmicwritting/report.png",
+    "example":"images/accadmicwritting/report-2.png",
+    "url":"https://leumdxmru.edublogs.org/letsson/complete-report-writing-tips-joy-mbeseka-ahmed-m-sc-bism-student/"
+}
+
+const paraphrase={
+    "btn":"Paraphrasing",
+    "name":"Paraphrasing",
+    "criteria":"images/accadmicwritting/paraphrasing.png",
+    "example":"images/accadmicwritting/paraphrasing-2.png",
+    "url":"https://leumdxmru.edublogs.org/letsson/paraphrase-and-summary/"
+}
+
+const chi={
+    "btn":"CHI Report",
+    "name":"CHI Report Template",
+    "criteria":"images/accadmicwritting/CHI.png",
+    "example":"images/accadmicwritting/CHI-2.png",
+    "url":"https://chi2018.acm.org/chi-proceedings-format/"
+}
+
+const criticalthinking={
+    "btn":"Critical Thinking",
+    "name":"Critical Thinking",
+    "criteria":"images/accadmicwritting/crticalthinking.png",
+    "example":"images/accadmicwritting/crticalthinking-2.png",
+    "url":"https://leumdxmru.edublogs.org/letvideos/critical-thinking/"
+}
+
+const essay={
+    "btn":"Essay",
+    "name":"Essay Writting",
+    "criteria":"images/accadmicwritting/essay.png",
+    "example":"images/accadmicwritting/essay-2.png",
+    "url":"https://leumdxmru.edublogs.org/helping-you/essay-structure/"
+}
+
+const plagiarism={
+    "btn":"Plagiarism",
+    "name":"Plagiarism",
+    "criteria":"images/accadmicwritting/plagarism.png",
+    "example":"images/accadmicwritting/plagarism-2.png",
+    "url":"https://leumdxmru.edublogs.org/helping-you/what-is-plagiarism-article-sponsored-by-turnitin/"
+}
+
+const programming=[
+    java,
+    python,
+    php,
+    cplus,
+    cprog,
+    ardiuno,
+    js
+];
+
+const references=[
+    webpages,
+    ebook,
+    journal,
+    books
+];
+
+const accademicWritting=[
+    litreview,
+    report,
+    paraphrase,
+    chi,
+    criticalthinking,
+    essay,
+    plagiarism
+];
+
 
 function generateReference(title, criteria, example,url){
     const refCard=document.createElement("div");
