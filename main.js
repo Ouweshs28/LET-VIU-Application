@@ -211,6 +211,33 @@ const plagiarism={
     "url":"https://leumdxmru.edublogs.org/helping-you/what-is-plagiarism-article-sponsored-by-turnitin/"
 }
 
+//contact us
+const facebook={
+    "btn":"Facebook",
+    "link":"https://www.facebook.com/letslamdx"
+}
+
+const instagram={
+    "btn":"Instagram",
+    "link":"https://www.instagram.com/let.slamdx2020/"
+}
+
+
+const blog={
+    "btn":"LET Blog",
+    "link":"https://leumdxmru.edublogs.org/"
+}
+
+const appointment={
+    "btn":"Appointment",
+    "link":"https://calendly.com/n-rozah"
+}
+
+const email={
+    "btn":"Email",
+    "link":"mailto:LET@mdx.ac.mu?subject=Subject&body=message%20goes%20here;"
+}
+
 const programming=[
     java,
     python,
@@ -238,6 +265,13 @@ const accademicWritting=[
     plagiarism
 ];
 
+
+const contact=[
+    facebook,
+    instagram,
+    appointment,
+    email
+]
 
 let trigger = [
     ["hi","hey","hello"],
@@ -271,6 +305,29 @@ let reply = [
 ];
 let alternative = ["Haha...", "Eh..."];
 
+let commands=[
+    {
+        "btn":"Referencing",
+        references
+
+    },
+    {
+        "btn":"Academic Writing",
+        accademicWritting
+    },
+    {
+        "btn":"Programming",
+        programming
+    },
+    {
+        "btn":"Contact Us",
+        contact
+    }
+]
+
+function redirect(url){
+    window.open(url)
+}
 function compare(arr, array, string){
     let item;
     for(let x=0; x<arr.length; x++){
@@ -453,21 +510,8 @@ recorder.onresult = (event) =>{
 voice.addEventListener('click',()=>{
     recorder.start();
  let elem =document.getElementById("main-container");
- let array=[
-     {
-         "btn":"Referencing"
-     },
-     {
-         "btn":"Referencing"
-     },
-     {
-         "btn":"Referencing"
-     },
-     {
-         "btn":"Referencing"
-     }
- ]
-    elem.appendChild(generateButton(array));
+
+    //elem.appendChild(generateButton(array));
 
 });
 
