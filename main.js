@@ -239,6 +239,75 @@ const accademicWritting=[
 ];
 
 
+let trigger = [
+    ["hi","hey","hello"],
+    ["help", "guide", "assist","commands","commands available"],
+    ["what are you doing", "what is going on"],
+    ["how old are you"],
+    ["who are you", "are you human", "are you bot", "are you human or bot"],
+    ["who created you", "who made you"],
+    ["your name please",  "your name", "may i know your name", "what is your name"],
+    ["i love you"],
+    ["happy", "good"],
+    ["bad", "bored", "tired"],
+    ["help me", "tell me story", "tell me joke"],
+    ["ah", "yes", "ok", "okay", "nice", "thanks", "thank you"],
+    ["bye", "good bye", "goodbye", "see you later"]
+];
+let reply = [
+    ["Hi, I am the LET Student Advisor","Hey, I am the LET Student Advisor","Hello, I am the LET Student Advisor"],
+    ["Here are available commands", "Below are some options", "You can find options below"],
+    ["Nothing much", "About to go to sleep", "Can you guest?", "I don't know actually"],
+    ["I am 1 day old"],
+    ["I am just a bot", "I am a bot. What are you?"],
+    ["Kani Veri", "My God"],
+    ["I am nameless", "I don't have a name"],
+    ["I love you too", "Me too"],
+    ["Have you ever felt bad?", "Glad to hear it"],
+    ["Why?", "Why? You shouldn't!", "Try watching TV"],
+    ["I will", "What about?"],
+    ["Tell me a story", "Tell me a joke", "Tell me about yourself", "You are welcome"],
+    ["Bye", "Goodbye", "See you later"]
+];
+let alternative = ["Haha...", "Eh..."];
+
+function compare(arr, array, string){
+    let item;
+    for(let x=0; x<arr.length; x++){
+        for(let y=0; y<array.length; y++){
+            if(arr[x][y] == string){
+                items = array[x];
+                item =  items[Math.floor(Math.random()*items.length)];
+            }
+        }
+    }
+    return item;
+}
+function generateButton(array){
+    const btnGroup=document.createElement('div');
+    btnGroup.classList.add("btn-group");
+    btnGroup.role="group";
+    for(let i=0;i<array.length;i++) {
+        const button = document.createElement('button');
+        button.classList.add("btn");
+        button.classList.add("btn-outline-primary");
+        button.classList.add("btnGap");
+        button.type = "button";
+        console.log(array[i].btn);
+        const btnText = document.createTextNode(array[i].btn);
+        button.appendChild(btnText);
+        btnGroup.appendChild(button);
+        button.addEventListener('click', () => {
+            let elem =document.getElementById("main-container");
+
+            elem.appendChild(generateBotChat("Here are available options on "+array[i].btn))
+
+        });
+    }
+    return btnGroup;
+
+}
+
 function generateReference(title, criteria, example,url){
     const refCard=document.createElement("div");
     refCard.classList.add("card");
@@ -354,6 +423,15 @@ function botReply(message){
 
     // logic
 
+    let text = (message.toLowerCase()).replace(/[^\w\s\d]/gi, ""); //remove all chars except words, space and
+    text = text.replace(/ a /g, " ").replace(/ you /g, " ").replace(/ you /g, " ").replace(/how can /g, "").replace(/whats/g, "what is").replace(/please /g, "").replace(/ please/g, "");
+    if(compare(trigger, reply, text)){
+        speech.text = compare(trigger, reply, text);
+    } else {
+        speech.text = alternative[Math.floor(Math.random()*alternative.length)];
+    }
+
+
     speech.volume=1;
     speech.pitch=1;
     speech.rate=1;
@@ -374,7 +452,22 @@ recorder.onresult = (event) =>{
 
 voice.addEventListener('click',()=>{
     recorder.start();
- let elem =document.getElementById("main-container")
+ let elem =document.getElementById("main-container");
+ let array=[
+     {
+         "btn":"Referencing"
+     },
+     {
+         "btn":"Referencing"
+     },
+     {
+         "btn":"Referencing"
+     },
+     {
+         "btn":"Referencing"
+     }
+ ]
+    elem.appendChild(generateButton(array));
 
 });
 
