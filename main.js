@@ -10,14 +10,17 @@ recorder.onstart = ()=>{
 //programming variables
 const java=[
     {
+        "btn":"Oracle",
         "name":"Oracle",
         "url":"https://docs.oracle.com/javase/tutorial/"
     },
     {
+        "btn":"Code Academy",
         "name":"Code Academy",
         "url":"https://www.codecademy.com/learn/learn-java"
     },
     {
+        "btn":"W3School",
         "name":"W3School",
         "url":"https://www.w3schools.com/java/"
     }
@@ -26,14 +29,17 @@ const java=[
 
 const python=[
     {
+        "btn":"Python Doc",
         "name":"Python Doc",
         "url":"https://wiki.python.org/moin/BeginnersGuide/NonProgrammers"
     },
     {
+        "btn":"Learn Python",
         "name":"Learn Python",
         "url":"https://www.learnpython.org/"
     },
     {
+        "btn":"W3School",
         "name":"W3School",
         "url":"https://www.w3schools.com/python/"
     }
@@ -42,14 +48,17 @@ const python=[
 
 const cprog=[
     {
+        "btn":"Learn C",
         "name":"Learn C",
         "url":"https://www.learn-c.org/"
     },
     {
+        "btn":"Code Camp",
         "name":"Code Camp",
         "url":"https://www.freecodecamp.org/news/the-c-beginners-handbook/"
     },
     {
+        "btn":"W3School",
         "name":"W3School",
         "url":"https://www.w3schools.in/c-tutorial/"
     }
@@ -58,14 +67,17 @@ const cprog=[
 
 const cplus=[
     {
+        "code":"Code Academy",
         "name":"Code Academy",
         "url":"https://www.codecademy.com/learn/learn-c-plus-plus"
     },
     {
+        "btn":"LearnCpp",
         "name":"LearnCpp",
         "url":"https://www.learncpp.com/"
     },
     {
+        "btn":"W3School",
         "name":"W3School",
         "url":"https://www.w3schools.com/cpp/"
     }
@@ -74,14 +86,17 @@ const cplus=[
 
 const js=[
     {
+        "btn":"Mozilla",
         "name":"Mozilla",
         "url":"https://developer.mozilla.org/en-US/docs/Web/JavaScript"
     },
     {
+        "btn":"Javascript Info",
         "name":"Javascript Info",
         "url":"https://javascript.info/"
     },
     {
+        "btn":"W3School",
         "name":"W3School",
         "url":"https://www.w3schools.com/js/DEFAULT.asp"
     }
@@ -90,14 +105,17 @@ const js=[
 
 const php=[
     {
+        "btn":"PHP Documentation",
         "name":"PHP Documentation",
         "url":"https://www.php.net/manual/en/langref.php"
     },
     {
+        "btn":"LearnPhp",
         "name":"LearnPhp",
         "url":"https://www.learn-php.org/"
     },
     {
+        "btn":"W3School",
         "name":"W3School",
         "url":"https://www.w3schools.com/php/"
     }
@@ -105,15 +123,19 @@ const php=[
 ];
 
 const ardiuno=[
+
     {
+        "btn":"Tutorials Point",
         "name":"Tutorials Point",
         "url":"https://www.tutorialspoint.com/arduino/index.html"
     },
     {
+        "btn":"Arduino",
         "name":"Arduino",
         "url":"https://www.arduino.cc/en/Tutorial/HomePage"
     },
     {
+        "btn":"Programing Electronics",
         "name":"Programing Electronics",
         "url":"https://www.programmingelectronics.com/free-arduino-guides-and-resources/"
     }
@@ -284,7 +306,7 @@ let trigger = [
     ["i love you"],
     ["happy", "good"],
     ["bad", "bored", "tired"],
-    ["help me", "tell me story", "tell me joke"],
+    ["tell me story", "tell me joke"],
     ["ah", "yes", "ok", "okay", "nice", "thanks", "thank you"],
     ["bye", "good bye", "goodbye", "see you later"]
 ];
@@ -303,25 +325,25 @@ let reply = [
     ["Tell me a story", "Tell me a joke", "Tell me about yourself", "You are welcome"],
     ["Bye", "Goodbye", "See you later"]
 ];
-let alternative = ["Haha...", "Eh..."];
+let alternative = ["Haha...", "Sorry excuse me"];
 
 let commands=[
     {
         "btn":"Referencing",
-        references
+        "function":references
 
     },
     {
         "btn":"Academic Writing",
-        accademicWritting
+        "function":accademicWritting
     },
     {
         "btn":"Programming",
-        programming
+        "function":programming
     },
     {
         "btn":"Contact Us",
-        contact
+        "function":contact
     }
 ]
 
@@ -334,6 +356,7 @@ function compare(arr, array, string){
         for(let y=0; y<array.length; y++){
             if(arr[x][y] == string){
                 items = array[x];
+                console.log(items);
                 item =  items[Math.floor(Math.random()*items.length)];
             }
         }
@@ -344,13 +367,13 @@ function generateButton(array){
     const btnGroup=document.createElement('div');
     btnGroup.classList.add("btn-group");
     btnGroup.role="group";
-    for(let i=0;i<array.length;i++) {
+    for(let i=0;i<4;i++) {
         const button = document.createElement('button');
         button.classList.add("btn");
         button.classList.add("btn-outline-primary");
         button.classList.add("btnGap");
         button.type = "button";
-        console.log(array[i].btn);
+        console.log(array[i]);
         const btnText = document.createTextNode(array[i].btn);
         button.appendChild(btnText);
         btnGroup.appendChild(button);
@@ -358,6 +381,7 @@ function generateButton(array){
             let elem =document.getElementById("main-container");
 
             elem.appendChild(generateBotChat("Here are available options on "+array[i].btn))
+            elem.appendChild(generateButton(array[i].function))
 
         });
     }
@@ -511,7 +535,7 @@ voice.addEventListener('click',()=>{
     recorder.start();
  let elem =document.getElementById("main-container");
 
-    //elem.appendChild(generateButton(array));
+    elem.appendChild(generateButton(commands));
 
 });
 
