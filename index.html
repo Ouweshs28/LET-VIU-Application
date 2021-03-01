@@ -9,11 +9,20 @@
 
 <body class="d-flex h-100 text-center text-white bg-dark">
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="main-container">
-    <main class="px-3 btnGap">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <main class="px-3">
         <h1>LET Student Advisor</h1>
         <p class="lead">This is a Voice User Application to assist them with the Learning Enhancement Team</p>
-            <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white voice">Start Voice</a>
+        <div id="main-container">
+
+        </div>
+        <div class="input-group btnGap">
+            <input id="userInput" type="text" class="form-control" placeholder="Chat here" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary chatText" type="button">Send</button>
+                <button class="btn btn-outline-secondary voice" type="button">Voice</button>
+            </div>
+        </div>
     </main>
    <!-- <div class="alert alert-light" role="alert">
         <p class="voice2Text">Chat will be place here</p>

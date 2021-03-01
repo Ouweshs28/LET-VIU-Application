@@ -1,4 +1,5 @@
 const voice= document.querySelector(".voice");
+const text= document.querySelector(".chatText");
 const voice2Text=document.querySelector(".voice2Text");
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -530,6 +531,15 @@ recorder.onresult = (event) =>{
     elem.appendChild(generateChat(transcript));
     botReply(transcript)
 };
+
+text.addEventListener('click',()=>{
+    let elem =document.getElementById("main-container");
+    let inputField=document.getElementById("userInput");
+    let transcript= inputField.value;
+    elem.appendChild(generateChat(transcript));
+    botReply(transcript);
+    inputField.value="";
+});
 
 voice.addEventListener('click',()=>{
     recorder.start();
