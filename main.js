@@ -1,6 +1,7 @@
 const voice= document.querySelector(".voice");
 const text= document.querySelector(".msg_send_btn");
 const voice2Text=document.querySelector(".voice2Text");
+const helpDiv=document.querySelector(".inbox_chat");
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recorder =new SpeechRecognition();
@@ -8,6 +9,13 @@ const recorder =new SpeechRecognition();
 recorder.onstart = ()=>{
     console.log("Voice Activated");
 };
+
+function clearHelp(elem){
+
+   elem.innerHTML="";
+   return elem;
+
+}
 //programming variables
 const java=[
     {
@@ -365,28 +373,37 @@ function compare(arr, array, string){
     return item;
 }
 function generateButton(array){
+    const chatList =document.createElement('div');
+    chatList.classList.add("chat_list");
+    const chatPeople= document.createElement('div');
+    chatPeople.classList.add("chat_people")
+    const chatIB= document.createElement('div');
+    chatIB.classList.add("chat_ib");
     const btnGroup=document.createElement('div');
-    btnGroup.classList.add("btn-group");
+    btnGroup.classList.add("d-grid");
+    btnGroup.classList.add("gap-5");
     btnGroup.role="group";
     for(let i=0;i<4;i++) {
         const button = document.createElement('button');
-        button.classList.add("btn");
-        button.classList.add("btn-outline-primary");
-        button.classList.add("btnGap");
+        button.classList.add("btn-lg");
+        button.classList.add("btn-primary");
         button.type = "button";
         console.log(array[i]);
         const btnText = document.createTextNode(array[i].btn);
         button.appendChild(btnText);
         btnGroup.appendChild(button);
         button.addEventListener('click', () => {
-            let elem =document.getElementById("main-container");
-
+            clearHelp(helpDiv);
+            let elem =document.querySelector('.msg_history');
             elem.appendChild(generateBotChat("Here are available options on "+array[i].btn))
-            elem.appendChild(generateButton(array[i].function))
+            helpDiv.appendChild(generateButton(array[i].function))
 
         });
     }
-    return btnGroup;
+    chatList.appendChild(chatPeople);
+    chatList.appendChild(chatIB);
+    chatList.appendChild(btnGroup);
+    return chatList;
 
 }
 
@@ -555,9 +572,8 @@ text.addEventListener('click',()=>{
 
 voice.addEventListener('click',()=>{
     recorder.start();
- let elem =document.querySelector(".inbox_people");
-
-    elem.appendChild(generateButton(commands));
+    clearHelp(helpDiv);
+    helpDiv.appendChild(generateButton(commands));
 
 });
 
