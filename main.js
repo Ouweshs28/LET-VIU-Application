@@ -1,5 +1,5 @@
 const voice= document.querySelector(".voice");
-const text= document.querySelector(".chatText");
+const text= document.querySelector(".msg_send_btn");
 const voice2Text=document.querySelector(".voice2Text");
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -472,30 +472,41 @@ function genPrograming(language,imgurl,btn1,link1,btn2,link2,btn3,link3){
 }
 
 function generateChat(text){
-    const alertContainer=document.createElement("div");
-    alertContainer.classList.add("alert");
-    alertContainer.classList.add("alert-light");
-    const chatBox=document.createElement("p");
-    chatBox.classList.add("voice2Text");
 
+    const outMsg=document.createElement('div');
+    outMsg.classList.add("outgoing_msg");
+    const sentMsg=document.createElement('div');
+    sentMsg.classList.add("sent_msg");
+    const paraChat =document.createElement('p');
     const chatText=document.createTextNode(text);
-    chatBox.appendChild(chatText);
-    alertContainer.appendChild(chatBox);
-    return alertContainer;
+    paraChat.appendChild(chatText);
+    sentMsg.appendChild(paraChat);
+    outMsg.appendChild(sentMsg);
+    return outMsg;
 
 }
 
 function generateBotChat(text){
-    const botContainer=document.createElement("div");
-    botContainer.classList.add("alert");
-    botContainer.classList.add("alert-success");
-    const botChatBox=document.createElement("p");
-    botChatBox.classList.add("voice2Text");
 
-    const BotChatText=document.createTextNode(text);
-    botChatBox.appendChild(BotChatText);
-    botContainer.appendChild(botChatBox);
-    return botContainer;
+    const incomingMsg= document.createElement('div');
+    incomingMsg.classList.add("incoming_msg");
+    const incomingMsgimg= document.createElement('div');
+    incomingMsgimg.classList.add("incoming_msg_img");
+    const imgUser=document.createElement('img');
+    imgUser.src="https://ptetutorials.com/images/user-profile.png";
+    incomingMsgimg.appendChild(imgUser);
+    incomingMsg.appendChild(incomingMsgimg);
+    const recivedMsg=document.createElement('div');
+    recivedMsg.classList.add("received_msg");
+    const  recivedWMsg=document.createElement('div');
+    recivedWMsg.classList.add("received_withd_msg");
+    const paraChat =document.createElement('p');
+    const chatText=document.createTextNode(text);
+    paraChat.appendChild(chatText);
+    recivedWMsg.appendChild(paraChat);
+    recivedMsg.appendChild(recivedWMsg);
+    incomingMsg.appendChild(recivedMsg);
+    return incomingMsg;
 
 }
 
@@ -518,7 +529,7 @@ function botReply(message){
     speech.pitch=1;
     speech.rate=1;
     window.speechSynthesis.speak(speech);
-    let elem =document.getElementById("main-container")
+    let elem =document.querySelector('.msg_history');
     elem.appendChild(generateBotChat(speech.text));
 
 }
@@ -526,14 +537,15 @@ function botReply(message){
 recorder.onresult = (event) =>{
    const resultIndex=event.resultIndex;
    const  transcript =event.results[resultIndex][0].transcript;
+   console.log(event);
   // voice2Text.textContent=transcript;
-    let elem =document.getElementById("main-container")
+    let elem =document.querySelector('.msg_history');
     elem.appendChild(generateChat(transcript));
     botReply(transcript)
 };
 
 text.addEventListener('click',()=>{
-    let elem =document.getElementById("main-container");
+    let elem =document.querySelector('.msg_history');
     let inputField=document.getElementById("userInput");
     let transcript= inputField.value;
     elem.appendChild(generateChat(transcript));

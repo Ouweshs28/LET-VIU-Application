@@ -5,59 +5,70 @@
     <title>LET Student Advisor</title>
 </head>
 <link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/all.css" rel="stylesheet">
 <link href="main.css" rel="stylesheet">
 
-<body class="d-flex h-100 text-center text-white bg-dark">
+<body>
+<div class="container">
+    <h3 class=" text-center">LET Student Advisor</h3>
+    <p class="text-center">This is a Voice User Application to assist them with the Learning Enhancement Team</p>
+    <div class="messaging">
+        <div class="inbox_msg">
+            <div class="inbox_people">
+                <div class="headind_srch">
+                    <div class="recent_heading">
+                        <h4>Help Area</h4>
+                    </div>
+                </div>
+                <div class="inbox_chat">
+                </div>
+            </div>
+            <div class="mesgs">
+                <div class="msg_history">
+                    <!--<div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>Test which is a new approach to have all
+                                solutions</p>
+                            <span class="time_date"> 11:01 AM    |    June 9</span></div>
+                    </div>
+                    <div class="incoming_msg">
+                        <div class="incoming_msg_img">
+                            <img src="https://ptetutorials.com/images/user-profile.png">
+                        </div>
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                                <p>Test, which is a new approach to have</p>
+                                <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+                        </div>
+                    </div>
+                    <div class="outgoing_msg">
+                        <div class="sent_msg">
+                            <p>Apollo University, Delhi, India Test</p>
+                            <span class="time_date"> 11:01 AM    |    Today</span></div>
+                    </div>-->
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <main class="px-3">
-        <h1>LET Student Advisor</h1>
-        <p class="lead">This is a Voice User Application to assist them with the Learning Enhancement Team</p>
-        <div id="main-container">
+                </div>
+                <div class="type_msg">
+                    <div class="input_msg_write">
+                        <input type="text" class="write_msg" id="userInput" placeholder="Type a message"/>
+                        <button class="msg_send_btn" type="button"><i class="far fa-paper-plane"></i></button>
 
-        </div>
-        <div class="input-group btnGap">
-            <input id="userInput" type="text" class="form-control" placeholder="Chat here" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary chatText" type="button">Send</button>
-                <button class="btn btn-outline-secondary voice" type="button">Voice</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
-   <!-- <div class="alert alert-light" role="alert">
-        <p class="voice2Text">Chat will be place here</p>
-    </div>
 
-    <div class="alert alert-success" role="alert">
-        <p>A simple success alert—check it out!</p>
-    </div>-->
-<!-- <div class="card">
-        <h5 class="card-header text-black-50">Paraphrasing</h5>
-        <div class="card-body">
-            <p class="card-text">
-                <img src="images/accadmicwritting/essay.png">
-                <img src="images/accadmicwritting/essay-2.png">
-            </p>
-            <a href="https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/digital-internet/the-internet/web-pages-with-organisations-as-authors" class="btn btn-primary">More on the blog</a>
-        </div>
-    </div>-->
-    <!--<div class="card">
-       <h5 class="card-header text-black-50">Java</h5>
-       <div class="card-body">
-           <p class="card-text">
-               <img src="images/programming/java.png" class="card-img-top">
-           </p>
-           <a href="https://docs.oracle.com/javase/tutorial/" class="btn btn-primary">Oracle</a>
-           <a href="https://www.codecademy.com/learn/learn-java" class="btn btn-primary">Code Academy</a>
-           <a href="https://www.w3schools.com/java/" class="btn btn-primary">W3School</a>
-       </div>
-   </div>-->
-    <!--<div class="btn-group" role="group" aria-label="Basic outlined example">
-        <button type="button" class="btn btn-outline-primary">Left</button>
-        <button type="button" class="btn btn-outline-primary">Middle</button>
-        <button type="button" class="btn btn-outline-primary">Right</button>
-    </div>-->
+
+        <p class="text-center top_spac"> Designed by <a target="_blank" href="https://github.com/Ouweshs28">
+            Ouwesh Seeroo
+        </a>
+        </p>
+
+    </div>
 </div>
-<script src="main.js"></script>
+<a href="#" class="float voice">
+    <i class="fa fa-microphone my-float"></i>
+</a>
 </body>
+<script src="main.js"></script>
 </html>
