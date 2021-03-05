@@ -555,7 +555,7 @@ text.addEventListener('click',()=>{
 
 voice.addEventListener('click',()=>{
     recorder.start();
- let elem =document.getElementById("main-container");
+ let elem =document.querySelector(".inbox_people");
 
     elem.appendChild(generateButton(commands));
 
