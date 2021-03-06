@@ -19,6 +19,9 @@ function clearHelp(elem){
 //programming variables
 const java=[
     {
+      "progname":"Java"
+    },
+    {
         "btn":"Oracle",
         "name":"Oracle",
         "url":"https://docs.oracle.com/javase/tutorial/"
@@ -37,6 +40,9 @@ const java=[
 ];
 
 const python=[
+    {
+        "progname":"Python"
+    },
     {
         "btn":"Python Doc",
         "name":"Python Doc",
@@ -57,6 +63,9 @@ const python=[
 
 const cprog=[
     {
+        "progname":"CProgramming"
+    },
+    {
         "btn":"Learn C",
         "name":"Learn C",
         "url":"https://www.learn-c.org/"
@@ -75,6 +84,9 @@ const cprog=[
 ];
 
 const cplus=[
+    {
+        "progname":"C++"
+    },
     {
         "code":"Code Academy",
         "name":"Code Academy",
@@ -95,6 +107,9 @@ const cplus=[
 
 const js=[
     {
+        "progname":"JavaScript"
+    },
+    {
         "btn":"Mozilla",
         "name":"Mozilla",
         "url":"https://developer.mozilla.org/en-US/docs/Web/JavaScript"
@@ -114,6 +129,9 @@ const js=[
 
 const php=[
     {
+        "progname":"PHP"
+    },
+    {
         "btn":"PHP Documentation",
         "name":"PHP Documentation",
         "url":"https://www.php.net/manual/en/langref.php"
@@ -132,6 +150,9 @@ const php=[
 ];
 
 const ardiuno=[
+    {
+        "progname":"Ardiuno"
+    },
 
     {
         "btn":"Tutorials Point",
@@ -154,92 +175,104 @@ const ardiuno=[
 //referencing variables
 
 const webpages={
+    "id":"web",
     "btn":"Website",
     "name":"Web pages with organisations as authors",
     "criteria":"images/referencing/website-criteria.PNG",
     "example":"images/referencing/website.PNG",
-    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/digital-internet/the-internet/web-pages-with-organisations-as-authors"
+    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/digital-internet/the-internet/web-pages-with-organisations-as-authors",
 }
 
 const books={
+    "id":"book",
     "btn":"Book",
     "name":"Printed books",
     "criteria":"images/referencing/book-criteria.PNG",
     "example":"images/referencing/book.PNG",
-    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/books/printed-books"
+    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/books/printed-books",
 }
 
 const journal={
+    "id":"journal",
     "btn":"Journal",
     "name":"Journal articles",
     "criteria":"images/referencing/journal-criteria.PNG",
     "example":"images/referencing/journal.PNG",
-    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/journals/journal-articles"
+    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/journals/journal-articles",
 }
 
 const ebook={
+    "id":"ebook",
     "btn":"E-Book",
     "name":"Electronic books (ebooks)",
     "criteria":"images/referencing/ebook-criteria.PNG",
     "example":"images/referencing/ebook.PNG",
-    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/books/electronic-books-ebooks"
+    "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/books/electronic-books-ebooks",
 }
 
 // academic writing variables
 const litreview={
+    "id":"litreview",
     "btn":"Literature Review",
     "name":"Literature Review",
     "criteria":"images/accadmicwritting/litreview-aim.png",
     "example":"images/accadmicwritting/litreview.png",
-    "url":"https://leumdxmru.edublogs.org/letsson/what-is-a-literature-review/"
+    "url":"https://leumdxmru.edublogs.org/letsson/what-is-a-literature-review/",
 }
 
 const report={
+    "id":"report",
     "btn":"Report",
     "name":"Report Writting",
     "criteria":"images/accadmicwritting/report.png",
     "example":"images/accadmicwritting/report-2.png",
-    "url":"https://leumdxmru.edublogs.org/letsson/complete-report-writing-tips-joy-mbeseka-ahmed-m-sc-bism-student/"
+    "url":"https://leumdxmru.edublogs.org/letsson/complete-report-writing-tips-joy-mbeseka-ahmed-m-sc-bism-student/",
+
 }
 
 const paraphrase={
+    "id":"paraphrase",
     "btn":"Paraphrasing",
     "name":"Paraphrasing",
     "criteria":"images/accadmicwritting/paraphrasing.png",
     "example":"images/accadmicwritting/paraphrasing-2.png",
-    "url":"https://leumdxmru.edublogs.org/letsson/paraphrase-and-summary/"
+    "url":"https://leumdxmru.edublogs.org/letsson/paraphrase-and-summary/",
 }
 
 const chi={
+    "id":"chi",
     "btn":"CHI Report",
     "name":"CHI Report Template",
     "criteria":"images/accadmicwritting/CHI.png",
     "example":"images/accadmicwritting/CHI-2.png",
-    "url":"https://chi2018.acm.org/chi-proceedings-format/"
+    "url":"https://chi2018.acm.org/chi-proceedings-format/",
 }
 
 const criticalthinking={
+    "id":"criticalthinking",
     "btn":"Critical Thinking",
     "name":"Critical Thinking",
     "criteria":"images/accadmicwritting/crticalthinking.png",
     "example":"images/accadmicwritting/crticalthinking-2.png",
-    "url":"https://leumdxmru.edublogs.org/letvideos/critical-thinking/"
+    "url":"https://leumdxmru.edublogs.org/letvideos/critical-thinking/",
 }
 
 const essay={
+    "id":"essay",
     "btn":"Essay",
     "name":"Essay Writting",
     "criteria":"images/accadmicwritting/essay.png",
     "example":"images/accadmicwritting/essay-2.png",
-    "url":"https://leumdxmru.edublogs.org/helping-you/essay-structure/"
+    "url":"https://leumdxmru.edublogs.org/helping-you/essay-structure/",
 }
 
 const plagiarism={
+    "id":"plagiarism",
     "btn":"Plagiarism",
     "name":"Plagiarism",
     "criteria":"images/accadmicwritting/plagarism.png",
     "example":"images/accadmicwritting/plagarism-2.png",
-    "url":"https://leumdxmru.edublogs.org/helping-you/what-is-plagiarism-article-sponsored-by-turnitin/"
+    "url":"https://leumdxmru.edublogs.org/helping-you/what-is-plagiarism-article-sponsored-by-turnitin/",
 }
 
 //contact us
@@ -373,6 +406,7 @@ function compare(arr, array, string){
     return item;
 }
 function generateButton(array){
+    console.log(array);
     const chatList =document.createElement('div');
     chatList.classList.add("chat_list");
     const chatPeople= document.createElement('div');
@@ -383,22 +417,53 @@ function generateButton(array){
     btnGroup.classList.add("d-grid");
     btnGroup.classList.add("gap-5");
     btnGroup.role="group";
+    if(Array.isArray(array)){
     for(let i=0;i<4;i++) {
+        let btnText;
         const button = document.createElement('button');
         button.classList.add("btn-lg");
         button.classList.add("btn-primary");
         button.type = "button";
-        console.log(array[i]);
-        const btnText = document.createTextNode(array[i].btn);
+        if(array[i].btn===undefined){
+            btnText= document.createTextNode(array[i][0].progname);
+            button.id=array[i][0].progname;
+        }else {
+            btnText = document.createTextNode(array[i].btn);
+            button.id = array[i].id;
+        }
+
         button.appendChild(btnText);
         btnGroup.appendChild(button);
-        button.addEventListener('click', () => {
-            clearHelp(helpDiv);
-            let elem =document.querySelector('.msg_history');
-            elem.appendChild(generateBotChat("Here are available options on "+array[i].btn))
-            helpDiv.appendChild(generateButton(array[i].function))
+        if(array[i].id===undefined) {
+            button.addEventListener('click', () => {
+                clearHelp(helpDiv);
+                let elem = document.querySelector('.msg_history');
+                elem.appendChild(generateChat(array[i].btn));
+                elem.appendChild(generateBotChat("Check your help area for options on " + array[i].btn));
+                const speech = new SpeechSynthesisUtterance();
+                speech.text = "Check your help area for options on " + array[i].btn;
+                window.speechSynthesis.speak(speech);
+                helpDiv.appendChild(generateButton(array[i].function))
 
-        });
+            });
+        }else{
+            button.addEventListener('click', () => {
+                clearHelp(helpDiv);
+                let elem = document.querySelector('.msg_history');
+                elem.appendChild(generateChat(array[i].btn));
+                elem.appendChild(generateBotChat("Check your help area on " + array[i].btn));
+                const speech = new SpeechSynthesisUtterance();
+                speech.text = "Check your help area for options on " + array[i].btn;
+                window.speechSynthesis.speak(speech);
+                helpDiv.appendChild(generateReference(array[i].name,array[i].criteria,array[i].example,array[i].url))
+
+            });
+
+            }
+        }
+
+    }else{
+        console.log(array)
     }
     chatList.appendChild(chatPeople);
     chatList.appendChild(chatIB);
@@ -427,7 +492,7 @@ function generateReference(title, criteria, example,url){
     cardPara.appendChild(criteriaEx);
     cardBody.appendChild(cardPara);
     const anchorLink =document.createElement("a");
-    anchorLink.oncanplaythrough=url;
+    anchorLink.href=url;
     anchorLink.classList.add("btn");
     anchorLink.classList.add("btn-primary");
     anchorLink.target='_blank'
