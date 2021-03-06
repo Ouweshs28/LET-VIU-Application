@@ -435,18 +435,33 @@ function generateButton(array){
         button.appendChild(btnText);
         btnGroup.appendChild(button);
         if(array[i].id===undefined) {
-            button.addEventListener('click', () => {
+            if(array[i].link===undefined){
+                button.addEventListener('click', () => {
+                    clearHelp(helpDiv);
+                    let elem = document.querySelector('.msg_history');
+                    elem.appendChild(generateChat(array[i].btn));
+                    elem.appendChild(generateBotChat("Check your help area for options on " + array[i].btn));
+                    const speech = new SpeechSynthesisUtterance();
+                    speech.text = "Check your help area for options on " + array[i].btn;
+                    window.speechSynthesis.speak(speech);
+                    helpDiv.appendChild(generateButton(array[i].function));
+
+                });
+            }else{
+                button.addEventListener('click', () => {
                 clearHelp(helpDiv);
                 let elem = document.querySelector('.msg_history');
                 elem.appendChild(generateChat(array[i].btn));
-                elem.appendChild(generateBotChat("Check your help area for options on " + array[i].btn));
+                elem.appendChild(generateBotChat("Redirecting to " + array[i].btn));
                 const speech = new SpeechSynthesisUtterance();
-                speech.text = "Check your help area for options on " + array[i].btn;
+                speech.text = "Redirecting to " + array[i].btn;
                 window.speechSynthesis.speak(speech);
-                helpDiv.appendChild(generateButton(array[i].function))
+                redirect(array[i].link);
+                });
+            }
 
-            });
-        }else{
+        }
+        else{
             button.addEventListener('click', () => {
                 clearHelp(helpDiv);
                 let elem = document.querySelector('.msg_history');
@@ -456,14 +471,12 @@ function generateButton(array){
                 speech.text = "Check your help area for options on " + array[i].btn;
                 window.speechSynthesis.speak(speech);
                 helpDiv.appendChild(generateReference(array[i].name,array[i].criteria,array[i].example,array[i].url))
-
+                console.log("reference button")
             });
 
             }
         }
 
-    }else{
-        console.log(array)
     }
     chatList.appendChild(chatPeople);
     chatList.appendChild(chatIB);
