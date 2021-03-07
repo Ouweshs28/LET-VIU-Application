@@ -19,7 +19,8 @@ function clearHelp(elem){
 //programming variables
 const java=[
     {
-      "progname":"Java"
+      "progname":"Java",
+        "imgurl":"images/programming/java.png"
     },
     {
         "btn":"Oracle",
@@ -41,7 +42,8 @@ const java=[
 
 const python=[
     {
-        "progname":"Python"
+        "progname":"Python",
+        "imgurl":"images/programming/python.png"
     },
     {
         "btn":"Python Doc",
@@ -63,7 +65,8 @@ const python=[
 
 const cprog=[
     {
-        "progname":"CProgramming"
+        "progname":"CProgramming",
+        "imgurl":"images/programming/c.png"
     },
     {
         "btn":"Learn C",
@@ -83,9 +86,33 @@ const cprog=[
 
 ];
 
+const html=[
+    {
+        "progname":"HTML",
+        "imgurl":"images/programming/c++.png"
+    },
+    {
+        "code":"Code Academy",
+        "name":"Code Academy",
+        "url":"https://www.codecademy.com/learn/learn-htmls"
+    },
+    {
+        "btn":"LearnHTML",
+        "name":"LearnHTML",
+        "url":"https://www.learn-html.org/"
+    },
+    {
+        "btn":"W3School",
+        "name":"W3School",
+        "url":"https://www.w3schools.com/html/"
+    }
+
+];
+
 const cplus=[
     {
-        "progname":"C++"
+        "progname":"C++",
+        "imgurl":"images/programming/c++.png"
     },
     {
         "code":"Code Academy",
@@ -107,7 +134,8 @@ const cplus=[
 
 const js=[
     {
-        "progname":"JavaScript"
+        "progname":"JavaScript",
+        "imgurl":"images/programming/javascript.png"
     },
     {
         "btn":"Mozilla",
@@ -129,7 +157,8 @@ const js=[
 
 const php=[
     {
-        "progname":"PHP"
+        "progname":"PHP",
+        "imgurl":"images/programming/php.png"
     },
     {
         "btn":"PHP Documentation",
@@ -151,7 +180,8 @@ const php=[
 
 const ardiuno=[
     {
-        "progname":"Ardiuno"
+        "progname":"Ardiuno",
+        "imgurl":"images/programming/ardiuno.png"
     },
 
     {
@@ -171,6 +201,8 @@ const ardiuno=[
     }
 
 ];
+
+
 
 //referencing variables
 
@@ -309,7 +341,8 @@ const programming=[
     cplus,
     cprog,
     ardiuno,
-    js
+    js,
+    html
 ];
 
 const references=[
@@ -406,7 +439,7 @@ function compare(arr, array, string){
     return item;
 }
 function generateButton(array){
-    console.log(array);
+    array.sort( () => .5 - Math.random() );
     const chatList =document.createElement('div');
     chatList.classList.add("chat_list");
     const chatPeople= document.createElement('div');
@@ -418,7 +451,7 @@ function generateButton(array){
     btnGroup.classList.add("gap-5");
     btnGroup.role="group";
     if(Array.isArray(array)){
-    for(let i=0;i<4;i++) {
+    for(let i=0;i<array.length;i++) {
         let btnText;
         const button = document.createElement('button');
         button.classList.add("btn-lg");
@@ -427,14 +460,28 @@ function generateButton(array){
         if(array[i].btn===undefined){
             btnText= document.createTextNode(array[i][0].progname);
             button.id=array[i][0].progname;
+            button.addEventListener('click', () => {
+                clearHelp(helpDiv);
+                let elem = document.querySelector('.msg_history');
+                elem.appendChild(generateChat(array[i][0].progname));
+                elem.appendChild(generateBotChat("Programming on " + array[i][0].progname));
+                const speech = new SpeechSynthesisUtterance();
+                speech.text = "Programming on " + array[i][0].progname;
+                window.speechSynthesis.speak(speech);
+                helpDiv.appendChild(genPrograming(array[i]));
+
+
+            });
         }else {
             btnText = document.createTextNode(array[i].btn);
             button.id = array[i].id;
+
         }
 
         button.appendChild(btnText);
         btnGroup.appendChild(button);
-        if(array[i].id===undefined) {
+        console.log(array)
+        if(array[i].id===undefined && array.length!=8) {
             if(array[i].link===undefined){
                 button.addEventListener('click', () => {
                     clearHelp(helpDiv);
@@ -461,18 +508,20 @@ function generateButton(array){
             }
 
         }
-        else{
-            button.addEventListener('click', () => {
-                clearHelp(helpDiv);
-                let elem = document.querySelector('.msg_history');
-                elem.appendChild(generateChat(array[i].btn));
-                elem.appendChild(generateBotChat("Check your help area on " + array[i].btn));
-                const speech = new SpeechSynthesisUtterance();
-                speech.text = "Check your help area for options on " + array[i].btn;
-                window.speechSynthesis.speak(speech);
-                helpDiv.appendChild(generateReference(array[i].name,array[i].criteria,array[i].example,array[i].url))
-                console.log("reference button")
-            });
+        else if(array.length!=8){
+
+                button.addEventListener('click', () => {
+                    clearHelp(helpDiv);
+                    let elem = document.querySelector('.msg_history');
+                    elem.appendChild(generateChat(array[i].btn));
+                    elem.appendChild(generateBotChat("Check your help area on " + array[i].btn));
+                    const speech = new SpeechSynthesisUtterance();
+                    speech.text = "Check your help area for options on " + array[i].btn;
+                    window.speechSynthesis.speak(speech);
+                    helpDiv.appendChild(generateReference(array[i].name,array[i].criteria,array[i].example,array[i].url))
+                });
+
+
 
             }
         }
@@ -517,13 +566,13 @@ function generateReference(title, criteria, example,url){
     return refCard;
 }
 
-function genPrograming(language,imgurl,btn1,link1,btn2,link2,btn3,link3){
+function genPrograming(array){
     const refCard=document.createElement("div");
     refCard.classList.add("card");
     const cardHeader=document.createElement("h5");
     cardHeader.classList.add("card-header");
     cardHeader.classList.add("text-black-50");
-    const refText=document.createTextNode(language);
+    const refText=document.createTextNode(array[0].progname);
     cardHeader.appendChild(refText);
     const cardBody=document.createElement('div');
     cardBody.classList.add("card-body");
@@ -531,38 +580,23 @@ function genPrograming(language,imgurl,btn1,link1,btn2,link2,btn3,link3){
     cardPara.classList.add("card-text");
     const programingImg = document.createElement('img');
     programingImg.classList.add("card-img-top")
-    programingImg.src = imgurl;
+    programingImg.src = array[0].imgurl;
     cardPara.appendChild(programingImg);
     cardBody.appendChild(cardPara);
-    const anchorLink =document.createElement("a");
-    anchorLink.href=link1;
-    anchorLink.classList.add("btn");
-    anchorLink.classList.add("btnProg");
-    anchorLink.classList.add("btn-primary");
-    anchorLink.target='_blank'
-    const btnInfo=document.createTextNode(btn1);
-    anchorLink.appendChild(btnInfo);
-    cardBody.appendChild(anchorLink);
-    const anchorLink2 =document.createElement("a");
-    anchorLink2.href=link2;
-    anchorLink2.classList.add("btn");
-    anchorLink2.classList.add("btnProg");
-    anchorLink2.classList.add("btn-primary");
-    anchorLink2.target='_blank'
-    const btnInfo2=document.createTextNode(btn2);
-    anchorLink2.appendChild(btnInfo2);
-    cardBody.appendChild(anchorLink2);
-    const anchorLink3 =document.createElement("a");
-    anchorLink3.href=link3;
-    anchorLink3.classList.add("btn");
-    anchorLink3.classList.add("btnProg");
-    anchorLink3.classList.add("btn-primary");
-    anchorLink3.target='_blank'
-    const btnInfo3=document.createTextNode(btn3);
-    anchorLink3.appendChild(btnInfo3);
-    cardBody.appendChild(anchorLink3);
+    for(let i=1;i<4;i++){
+        const anchorLink =document.createElement("a");
+        anchorLink.href=array[i].url;
+        anchorLink.classList.add("btn");
+        anchorLink.classList.add("btnProg");
+        anchorLink.classList.add("btn-primary");
+        anchorLink.target='_blank'
+        const btnInfo=document.createTextNode(array[i].name);
+        anchorLink.appendChild(btnInfo);
+        cardBody.appendChild(anchorLink);
+    }
     refCard.appendChild(cardHeader);
     refCard.appendChild(cardBody);
+    console.log(refCard);
     return refCard;
 }
 
