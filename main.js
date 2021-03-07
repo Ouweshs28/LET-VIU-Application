@@ -2,6 +2,7 @@ const voice= document.querySelector(".voice");
 const text= document.querySelector(".msg_send_btn");
 const voice2Text=document.querySelector(".voice2Text");
 const helpDiv=document.querySelector(".inbox_chat");
+const chatInput=document.querySelector(".write_msg")
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recorder =new SpeechRecognition();
@@ -372,7 +373,7 @@ const contact=[
 
 let trigger = [
     ["hi","hey","hello"],
-    ["help", "guide", "assist","commands","commands available"],
+    ["help","you help", "guide", "assist","commands","commands available"],
     ["what are you doing", "what is going on"],
     ["how old are you"],
     ["who are you", "are you human", "are you bot", "are you human or bot"],
@@ -387,7 +388,7 @@ let trigger = [
 ];
 let reply = [
     ["Hi, I am the LET Student Advisor","Hey, I am the LET Student Advisor","Hello, I am the LET Student Advisor"],
-    ["Here are available commands", "Below are some options", "You can find options below"],
+    ["Here are available commands in the help area", "Find in the help area some options", "You can find options in the help area"],
     ["Nothing much", "About to go to sleep", "Can you guest?", "I don't know actually"],
     ["I am 1 day old"],
     ["I am just a bot", "I am a bot. What are you?"],
@@ -430,6 +431,12 @@ function compare(arr, array, string){
     for(let x=0; x<arr.length; x++){
         for(let y=0; y<array.length; y++){
             if(arr[x][y] == string){
+                switch(x) {
+                    case 1:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateButton(commands));
+                        break;
+                }
                 items = array[x];
                 console.log(items);
                 item =  items[Math.floor(Math.random()*items.length)];
@@ -646,7 +653,14 @@ function botReply(message){
     // logic
 
     let text = (message.toLowerCase()).replace(/[^\w\s\d]/gi, ""); //remove all chars except words, space and
-    text = text.replace(/ a /g, " ").replace(/ you /g, " ").replace(/ you /g, " ").replace(/how can /g, "").replace(/whats/g, "what is").replace(/please /g, "").replace(/ please/g, "");
+    text = text.replace(/ a /g, " ")
+        .replace(/i feel /g, "")
+        .replace(/what are /g, "")
+        .replace(/whats/g, "what is")
+        .replace(/please /g, "")
+        .replace(/how can /g, "")
+        .replace(/ please/g, "");
+
     if(compare(trigger, reply, text)){
         speech.text = compare(trigger, reply, text);
     } else {
@@ -682,10 +696,20 @@ text.addEventListener('click',()=>{
     inputField.value="";
 });
 
-voice.addEventListener('click',()=>{
-    recorder.start();
-    clearHelp(helpDiv);
-    helpDiv.appendChild(generateButton(commands));
-
+chatInput.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        let elem =document.querySelector('.msg_history');
+        let inputField=document.getElementById("userInput");
+        let transcript= inputField.value;
+        elem.appendChild(generateChat(transcript));
+        botReply(transcript);
+        inputField.value="";
+    }
 });
 
+voice.addEventListener('click',()=>{
+    recorder.start();
+    /*clearHelp(helpDiv);
+    helpDiv.appendChild(generateButton(commands));*/
+
+});
