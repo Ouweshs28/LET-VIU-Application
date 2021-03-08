@@ -90,7 +90,7 @@ const cprog=[
 const html=[
     {
         "progname":"HTML",
-        "imgurl":"images/programming/c++.png"
+        "imgurl":"images/programming/html.png"
     },
     {
         "code":"Code Academy",
@@ -374,10 +374,12 @@ const contact=[
 let trigger = [
     ["hi","hey","hello"],
     ["help","you help", "guide", "assist","commands","commands available"],
-    ["what are you doing", "what is going on"],
-    ["how old are you"],
-    ["who are you", "are you human", "are you bot", "are you human or bot"],
-    ["who created you", "who made you"],
+    ["reference", "citation", "bibliography","referencing","cite"],
+    ["reference websites","reference website","reference webpages","reference webpage", "reference online","referencing online","cite website","cite websites","cite webpages","cite webpage"],
+    ["reference books","reference book", "referencing books","cite book","cite books"],
+    ["reference e-books","reference e-book","reference electronic book","reference electronic books","referencing ebooks","referencing e-books","referencing e-book","cite ebook","cite ebooks","cite e-book","cite e-books","cite electronic book","cite electronic books"],
+    ["reference journal","reference journals","reference article","reference articles","referencing journal","referencing journals","referencing article","referencing articles","cite journal","cite journals","cite article","cite articles"],
+    ["programming", "code","codding"],
     ["your name please",  "your name", "may i know your name", "what is your name"],
     ["i love you"],
     ["happy", "good"],
@@ -389,9 +391,12 @@ let trigger = [
 let reply = [
     ["Hi, I am the LET Student Advisor","Hey, I am the LET Student Advisor","Hello, I am the LET Student Advisor"],
     ["Here are available commands in the help area", "Find in the help area some options", "You can find options in the help area"],
-    ["Nothing much", "About to go to sleep", "Can you guest?", "I don't know actually"],
-    ["I am 1 day old"],
-    ["I am just a bot", "I am a bot. What are you?"],
+    ["Here are available referencing guides in the help area", "Find in the help area some guides on referencing", "You can find options on referencing  in the help area"],
+    ["Here are available reference a website in the help area", "Find in the help area on referencing websites", "You can find options on referencing websites in the help area"],
+    ["Here are available reference a book in the help area", "Find in the help area on referencing books", "You can find options on referencing books in the help area"],
+    ["Here are available reference an e-book in the help area", "Find in the help area on referencing electronic books", "You can find options on referencing e-books in the help area"],
+    ["Here are available reference a journal in the help area", "Find in the help area on referencing journals", "You can find options on referencing journals in the help area"],
+    ["Here are available programming languages resources in the help area", "Find in the help area some programming languages resources", "You can find programming languages resources in the help area"],
     ["Kani Veri", "My God"],
     ["I am nameless", "I don't have a name"],
     ["I love you too", "Me too"],
@@ -428,14 +433,41 @@ function redirect(url){
 }
 function compare(arr, array, string){
     let item;
+    console.log(string);
     for(let x=0; x<arr.length; x++){
         for(let y=0; y<array.length; y++){
             if(arr[x][y] == string){
+                console.log(x)
                 switch(x) {
                     case 1:
                         clearHelp(helpDiv);
                         helpDiv.appendChild(generateButton(commands));
                         break;
+                    case 2:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateButton(references));
+                        break;
+                    case 3:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(webpages.name,webpages.criteria,webpages.example,webpages.url));
+                        break;
+                    case 4:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(books.name,books.criteria,books.example,books.url));
+                        break;
+                    case 5:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(ebook.name,ebook.criteria,ebook.example,ebook.url));
+                        break;
+                    case 6:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateButton(journal.name,journal.criteria,journal.example,journal.url));
+                        break;
+                    case 7:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateButton(programming));
+                        break;
+
                 }
                 items = array[x];
                 console.log(items);
@@ -454,8 +486,7 @@ function generateButton(array){
     const chatIB= document.createElement('div');
     chatIB.classList.add("chat_ib");
     const btnGroup=document.createElement('div');
-    btnGroup.classList.add("d-grid");
-    btnGroup.classList.add("gap-5");
+    btnGroup.classList.add("btn-group-vertical");
     btnGroup.role="group";
     if(Array.isArray(array)){
     for(let i=0;i<array.length;i++) {
@@ -463,6 +494,7 @@ function generateButton(array){
         const button = document.createElement('button');
         button.classList.add("btn-lg");
         button.classList.add("btn-primary");
+        button.classList.add("mb-4");
         button.type = "button";
         if(array[i].btn===undefined){
             btnText= document.createTextNode(array[i][0].progname);
@@ -659,7 +691,12 @@ function botReply(message){
         .replace(/whats/g, "what is")
         .replace(/please /g, "")
         .replace(/how can /g, "")
-        .replace(/ please/g, "");
+        .replace(/how to /g, "")
+        .replace(/i need help with /g, "")
+        .replace(/help me with /g, "")
+        .replace(/can you /g, "")
+        .replace(/i am struggling with /g, "");
+
 
     if(compare(trigger, reply, text)){
         speech.text = compare(trigger, reply, text);
