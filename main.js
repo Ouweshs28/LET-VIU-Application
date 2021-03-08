@@ -380,8 +380,15 @@ let trigger = [
     ["reference e-books","reference e-book","reference electronic book","reference electronic books","referencing ebooks","referencing e-books","referencing e-book","cite ebook","cite ebooks","cite e-book","cite e-books","cite electronic book","cite electronic books"],
     ["reference journal","reference journals","reference article","reference articles","referencing journal","referencing journals","referencing article","referencing articles","cite journal","cite journals","cite article","cite articles"],
     ["programming", "code","codding"],
-    ["your name please",  "your name", "may i know your name", "what is your name"],
-    ["i love you"],
+    ["programming arduino","code arduino","codding arduino","arduino programming","arduino code","arduino codding"],
+    ["programming c++","code c++","codding c++","c++ programming","c++ code","c++ codding"],
+    ["programming c","code c","codding c","c programming","c code","c codding"],
+    ["programming html","code html","codding html","html programming","html code","html codding"],
+    ["programming java","code java","codding java","java programming","java code","java codding"],
+    ["programming javascript","code javascript","codding javascript","javascript programming","javascript code","javascript codding"],
+    ["programming python","code python","codding python","python programming","python code","python codding"],
+    ["programming php","code php","codding php","php programming","php code","php codding"],
+    ["academic writing", "writing", "language","academic language"],
     ["happy", "good"],
     ["bad", "bored", "tired"],
     ["tell me story", "tell me joke"],
@@ -397,6 +404,15 @@ let reply = [
     ["Here are available reference an e-book in the help area", "Find in the help area on referencing electronic books", "You can find options on referencing e-books in the help area"],
     ["Here are available reference a journal in the help area", "Find in the help area on referencing journals", "You can find options on referencing journals in the help area"],
     ["Here are available programming languages resources in the help area", "Find in the help area some programming languages resources", "You can find programming languages resources in the help area"],
+    ["Here are available arduino programming languages resources in the help area", "Find in the help area some arduino programming languages resources", "You can find arduino programming languages resources in the help area"],
+    ["Here are available c++ programming languages resources in the help area", "Find in the help area some c++ programming languages resources", "You can find c++ programming languages resources in the help area"],
+    ["Here are available c programming languages resources in the help area", "Find in the help area some c programming languages resources", "You can find c programming languages resources in the help area"],
+    ["Here are available html programming languages resources in the help area", "Find in the help area some html programming languages resources", "You can find html programming languages resources in the help area"],
+    ["Here are available java programming languages resources in the help area", "Find in the help area some java programming languages resources", "You can find java programming languages resources in the help area"],
+    ["Here are available javascript programming languages resources in the help area", "Find in the help area some javascript programming languages resources", "You can find javascript programming languages resources in the help area"],
+    ["Here are available python programming languages resources in the help area", "Find in the help area some python programming languages resources", "You can find python programming languages resources in the help area"],
+    ["Here are available php programming languages resources in the help area", "Find in the help area some php programming languages resources", "You can find php programming languages resources in the help area"],
+    ["Here are available academic writing resources in the help area", "Find in the help area some academic writing resources", "You can find academic writing resources in the help area"],
     ["Kani Veri", "My God"],
     ["I am nameless", "I don't have a name"],
     ["I love you too", "Me too"],
@@ -467,6 +483,40 @@ function compare(arr, array, string){
                         clearHelp(helpDiv);
                         helpDiv.appendChild(generateButton(programming));
                         break;
+                    case 8:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(genPrograming(ardiuno));
+                        break;
+                    case 9:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(genPrograming(cplus));
+                        break;
+                    case 10:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(genPrograming(html));
+                        break;
+                    case 11:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(genPrograming(java));
+                        break;
+                    case 12:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(genPrograming(js));
+                        break;
+                    case 13:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(genPrograming(python));
+                        break;
+                    case 14:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(genPrograming(php));
+                        break;
+                    case 15:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateButton(accademicWritting));
+                        break;
+
+
 
                 }
                 items = array[x];
