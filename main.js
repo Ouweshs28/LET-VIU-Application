@@ -390,10 +390,17 @@ let trigger = [
     ["programming php","code php","codding php","php programming","php code","php codding"],
     ["academic writing", "writing", "language","academic language"],
     ["chi writing", "chi report","chi format"],
-    ["happy", "good"],
-    ["bad", "bored", "tired"],
-    ["tell me story", "tell me joke"],
-    ["ah", "yes", "ok", "okay", "nice", "thanks", "thank you"],
+    ["critical thinking","thinking critically","think critically"],
+    ["writing essay","essay writing","essay","essays"],
+    ["writing literature review","literature review writing","literature review","lit review"],
+    ["paraphrase","paraphrasing", "re-write", "re write","rephrase","rephrasing"],
+    ["plagiarism","plagiarise", "plagiarising"],
+    ["writing report","report writing","report","reports"],
+    ["contact", "social media", "reach let","reach the team"],
+    ["facebook", "fb"],
+    ["instagram", "insta"],
+    ["appointment", "meeting","consultation","session","appointments", "meetings","consultations","sessions"],
+    ["email", "emails","e-mails","e-mail"],
     ["bye", "good bye", "goodbye", "see you later"]
 ];
 let reply = [
@@ -415,13 +422,17 @@ let reply = [
     ["Here are available php programming languages resources in the help area", "Find in the help area some php programming languages resources", "You can find php programming languages resources in the help area"],
     ["Here are available academic writing resources in the help area", "Find in the help area some academic writing resources", "You can find academic writing resources in the help area"],
     ["Here are available chi writing in the help area", "Find in the help area chi writing resources", "You can find chi writing resources in the help area"],
-    ["Kani Veri", "My God"],
-    ["I am nameless", "I don't have a name"],
-    ["I love you too", "Me too"],
-    ["Have you ever felt bad?", "Glad to hear it"],
-    ["Why?", "Why? You shouldn't!", "Try watching TV"],
-    ["I will", "What about?"],
-    ["Tell me a story", "Tell me a joke", "Tell me about yourself", "You are welcome"],
+    ["Here are available critical thinking in the help area", "Find in the help area critical thinking resources", "You can find critical thinking resources in the help area"],
+    ["Here are available essay writing in the help area", "Find in the help area essay writing resources", "You can find essay writing resources in the help area"],
+    ["Here are available literature review in the help area", "Find in the help area literature review resources", "You can find literature review resources in the help area"],
+    ["Here are available paraphrasing in the help area", "Find in the help area paraphrasing resources", "You can find paraphrasing resources in the help area"],
+    ["Here are available plagiarism in the help area", "Find in the help area plagiarism resources", "You can find plagiarism resources in the help area"],
+    ["Here are available report writing in the help area", "Find in the help area report writing resources", "You can find report writing resources in the help area"],
+    ["Here are available point of contact in the help area", "Find in the help area ways to contact the team", "You can find ways to contact the team in the help area"],
+    ["Redirecting to facebook page of LET", "Opening the LET facebook page in a new tab"],
+    ["Redirecting to instagram page of LET", "Opening the LET instagram page in a new tab"],
+    ["Redirecting to calendly booking please book your appointment", "Opening the calendly booking please book your appointment"],
+    ["Redirecting to email application, type your email", "Opening the email application, type your email  in a new tab"],
     ["Bye", "Goodbye", "See you later"]
 ];
 let alternative = ["Haha...", "Sorry excuse me"];
@@ -447,7 +458,11 @@ let commands=[
 ]
 
 function redirect(url){
-    window.open(url)
+    setTimeout(function(){
+        window.open(url)
+    }, 2000);
+
+
 }
 function compare(arr, array, string){
     let item;
@@ -521,8 +536,54 @@ function compare(arr, array, string){
                         clearHelp(helpDiv);
                         helpDiv.appendChild(generateButton(accademicWritting));
                         break;
-
-
+                    case 17:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(chi.name,chi.criteria,chi.example,chi.url));
+                        break;
+                    case 18:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(criticalthinking.name,criticalthinking.criteria,criticalthinking.example,criticalthinking.url));
+                        break;
+                    case 19:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(essay.name,essay.criteria,essay.example,essay.url));
+                        break;
+                    case 20:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(litreview.name,litreview.criteria,litreview.example,litreview.url));
+                        break;
+                    case 21:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(paraphrase.name,paraphrase.criteria,paraphrase.example,paraphrase.url));
+                        break;
+                    case 22:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(plagiarism.name,plagiarism.criteria,plagiarism.example,plagiarism.url));
+                        break;
+                    case 23:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateReference(report.name,report.criteria,report.example,report.url));
+                        break;
+                    case 24:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(generateButton(contact));
+                        break;
+                    case 25:
+                        clearHelp(helpDiv);
+                        redirect(facebook.link);
+                        break;
+                    case 26:
+                        clearHelp(helpDiv);
+                        redirect(instagram.link);
+                        break;
+                    case 27:
+                        clearHelp(helpDiv);
+                        redirect(appointment.link);
+                        break;
+                    case 28:
+                        clearHelp(helpDiv);
+                        redirect(email.link);
+                        break;
 
                 }
                 items = array[x];
