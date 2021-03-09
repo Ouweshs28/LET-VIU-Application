@@ -765,7 +765,14 @@ function generateChat(text){
     const paraChat =document.createElement('p');
     const chatText=document.createTextNode(text);
     paraChat.appendChild(chatText);
+    const spanDate=document.createElement('span');
+    spanDate.classList.add("time_date");
+    const today = new Date();
+    let time = today.getHours() + ":" + today.getMinutes();
+    const dateText=document.createTextNode(time);
+    spanDate.appendChild(dateText);
     sentMsg.appendChild(paraChat);
+    sentMsg.appendChild(spanDate);
     outMsg.appendChild(sentMsg);
     return outMsg;
 
@@ -788,7 +795,14 @@ function generateBotChat(text){
     const paraChat =document.createElement('p');
     const chatText=document.createTextNode(text);
     paraChat.appendChild(chatText);
+    const spanDate=document.createElement('span');
+    spanDate.classList.add("time_date");
+    const today = new Date();
+    let time = today.getHours() + ":" + today.getMinutes();
+    const dateText=document.createTextNode(time);
+    spanDate.appendChild(dateText);
     recivedWMsg.appendChild(paraChat);
+    recivedWMsg.appendChild(spanDate);
     recivedMsg.appendChild(recivedWMsg);
     incomingMsg.appendChild(recivedMsg);
     return incomingMsg;
