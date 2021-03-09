@@ -389,6 +389,7 @@ let trigger = [
     ["programming python","code python","codding python","python programming","python code","python codding"],
     ["programming php","code php","codding php","php programming","php code","php codding"],
     ["academic writing", "writing", "language","academic language"],
+    ["chi writing", "chi report","chi format"],
     ["happy", "good"],
     ["bad", "bored", "tired"],
     ["tell me story", "tell me joke"],
@@ -413,6 +414,7 @@ let reply = [
     ["Here are available python programming languages resources in the help area", "Find in the help area some python programming languages resources", "You can find python programming languages resources in the help area"],
     ["Here are available php programming languages resources in the help area", "Find in the help area some php programming languages resources", "You can find php programming languages resources in the help area"],
     ["Here are available academic writing resources in the help area", "Find in the help area some academic writing resources", "You can find academic writing resources in the help area"],
+    ["Here are available chi writing in the help area", "Find in the help area chi writing resources", "You can find chi writing resources in the help area"],
     ["Kani Veri", "My God"],
     ["I am nameless", "I don't have a name"],
     ["I love you too", "Me too"],
@@ -477,7 +479,7 @@ function compare(arr, array, string){
                         break;
                     case 6:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateButton(journal.name,journal.criteria,journal.example,journal.url));
+                        helpDiv.appendChild(generateReference(journal.name,journal.criteria,journal.example,journal.url));
                         break;
                     case 7:
                         clearHelp(helpDiv);
@@ -493,25 +495,29 @@ function compare(arr, array, string){
                         break;
                     case 10:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(genPrograming(html));
+                        helpDiv.appendChild(genPrograming(cprog));
                         break;
                     case 11:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(genPrograming(java));
+                        helpDiv.appendChild(genPrograming(html));
                         break;
                     case 12:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(genPrograming(js));
+                        helpDiv.appendChild(genPrograming(java));
                         break;
                     case 13:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(genPrograming(python));
+                        helpDiv.appendChild(genPrograming(js));
                         break;
                     case 14:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(genPrograming(php));
+                        helpDiv.appendChild(genPrograming(python));
                         break;
                     case 15:
+                        clearHelp(helpDiv);
+                        helpDiv.appendChild(genPrograming(php));
+                        break;
+                    case 16:
                         clearHelp(helpDiv);
                         helpDiv.appendChild(generateButton(accademicWritting));
                         break;
@@ -528,7 +534,6 @@ function compare(arr, array, string){
     return item;
 }
 function generateButton(array){
-    array.sort( () => .5 - Math.random() );
     const chatList =document.createElement('div');
     chatList.classList.add("chat_list");
     const chatPeople= document.createElement('div');
@@ -539,6 +544,7 @@ function generateButton(array){
     btnGroup.classList.add("btn-group-vertical");
     btnGroup.role="group";
     if(Array.isArray(array)){
+        array.sort( () => .5 - Math.random() );
     for(let i=0;i<array.length;i++) {
         let btnText;
         const button = document.createElement('button');
@@ -796,7 +802,5 @@ chatInput.addEventListener("keyup", function(event) {
 
 voice.addEventListener('click',()=>{
     recorder.start();
-    /*clearHelp(helpDiv);
-    helpDiv.appendChild(generateButton(commands));*/
 
 });
