@@ -174,5 +174,5 @@ img{ max-width:100%;}
 .closeBtn{
     margin: 10px;
     float: right;
-    color: white;
+    color: white!important;
 }
