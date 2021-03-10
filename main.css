@@ -176,3 +176,8 @@ img{ max-width:100%;}
     float: right;
     color: white!important;
 }
+
+button:focus {
+    border: none;
+    outline: none;
+}

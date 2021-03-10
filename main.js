@@ -3,6 +3,7 @@ const text= document.querySelector(".msg_send_btn");
 const voice2Text=document.querySelector(".voice2Text");
 const helpDiv=document.querySelector(".inbox_chat");
 const chatInput=document.querySelector(".write_msg")
+const micIcon=document.querySelector(".float_right");
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recorder =new SpeechRecognition();
@@ -585,10 +586,13 @@ function compare(arr, array, string){
                         redirect(email.link);
                         break;
 
+
                 }
                 items = array[x];
                 console.log(items);
                 item =  items[Math.floor(Math.random()*items.length)];
+            }else{
+                $('#exampleModalCenter').modal('show');
             }
         }
     }
@@ -873,10 +877,12 @@ function botReply(message){
 
 }
 
+
 recorder.onresult = (event) =>{
+    micIcon.style.background="#05728f";
    const resultIndex=event.resultIndex;
    const  transcript =event.results[resultIndex][0].transcript;
-   console.log(event);
+   //console.log(event);
   // voice2Text.textContent=transcript;
     let elem =document.querySelector('.msg_history');
     elem.appendChild(generateChat(transcript));
@@ -910,5 +916,7 @@ chatInput.addEventListener("keyup", function(event) {
 
 voice.addEventListener('click',()=>{
     recorder.start();
-
+    micIcon.style.background="#00ff00";
 });
+
+
