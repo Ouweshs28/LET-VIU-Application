@@ -825,6 +825,7 @@ function botReply(message){
         .replace(/how to /g, "")
         .replace(/i need help with /g, "")
         .replace(/help me with /g, "")
+        .replace(/help /g, "")
         .replace(/can you /g, "")
         .replace(/i am struggling with /g, "");
 
@@ -859,9 +860,14 @@ text.addEventListener('click',()=>{
     let elem =document.querySelector('.msg_history');
     let inputField=document.getElementById("userInput");
     let transcript= inputField.value;
-    elem.appendChild(generateChat(transcript));
-    botReply(transcript);
-    inputField.value="";
+    if(transcript==""){
+        toastr.error("Please type something");
+    }else{
+        elem.appendChild(generateChat(transcript));
+        botReply(transcript);
+        inputField.value="";
+    }
+
 });
 
 chatInput.addEventListener("keyup", function(event) {
