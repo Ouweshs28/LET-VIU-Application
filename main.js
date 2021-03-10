@@ -626,9 +626,6 @@ function generateButton(array){
                 let elem = document.querySelector('.msg_history');
                 elem.appendChild(generateChat(array[i][0].progname));
                 elem.appendChild(generateBotChat("Programming on " + array[i][0].progname));
-                const speech = new SpeechSynthesisUtterance();
-                speech.text = "Programming on " + array[i][0].progname;
-                window.speechSynthesis.speak(speech);
                 helpDiv.appendChild(genPrograming(array[i],back));
 
 
@@ -649,9 +646,6 @@ function generateButton(array){
                     let elem = document.querySelector('.msg_history');
                     elem.appendChild(generateChat(array[i].btn));
                     elem.appendChild(generateBotChat("Check your help area for options on " + array[i].btn));
-                    const speech = new SpeechSynthesisUtterance();
-                    speech.text = "Check your help area for options on " + array[i].btn;
-                    window.speechSynthesis.speak(speech);
                     helpDiv.appendChild(generateButton(array[i].function));
 
                 });
@@ -661,9 +655,6 @@ function generateButton(array){
                 let elem = document.querySelector('.msg_history');
                 elem.appendChild(generateChat(array[i].btn));
                 elem.appendChild(generateBotChat("Redirecting to " + array[i].btn));
-                const speech = new SpeechSynthesisUtterance();
-                speech.text = "Redirecting to " + array[i].btn;
-                window.speechSynthesis.speak(speech);
                 redirect(array[i].link);
                 });
             }
@@ -676,9 +667,6 @@ function generateButton(array){
                     let elem = document.querySelector('.msg_history');
                     elem.appendChild(generateChat(array[i].btn));
                     elem.appendChild(generateBotChat("Check your help area on " + array[i].btn));
-                    const speech = new SpeechSynthesisUtterance();
-                    speech.text = "Check your help area for options on " + array[i].btn;
-                    window.speechSynthesis.speak(speech);
                     helpDiv.appendChild(generateReference(array[i],back))
                 });
 
