@@ -591,8 +591,6 @@ function compare(arr, array, string){
                 items = array[x];
                 console.log(items);
                 item =  items[Math.floor(Math.random()*items.length)];
-            }else{
-                $('#exampleModalCenter').modal('show');
             }
         }
     }
@@ -864,6 +862,8 @@ function botReply(message){
     if(compare(trigger, reply, text)){
         speech.text = compare(trigger, reply, text);
     } else {
+
+        $('#exampleModalCenter').modal('show');
         speech.text = alternative[Math.floor(Math.random()*alternative.length)];
     }
 
