@@ -60,7 +60,7 @@ img{ max-width:100%;}
     margin: 0;
     padding: 18px 16px 10px;
 }
-.inbox_chat { height: 550px;}
+.inbox_chat { height: 550px; overflow-y: scroll;}
 
 .active_chat{ background:#ebebeb;}
 
@@ -192,5 +192,17 @@ img{ max-width:100%;}
 button:focus {
     border: none;
     outline: none;
+}
+
+.backButton{
+    width: 60px;
+    margin: 5px;
+    color: white;
+}
+
+.btn-primary{
+    background-color:#05728f;
+    color:#FFF;
+    border-color:white;
 }
 

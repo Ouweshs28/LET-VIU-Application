@@ -5,6 +5,7 @@ const helpDiv=document.querySelector(".inbox_chat");
 const chatInput=document.querySelector(".write_msg")
 const micIcon=document.querySelector(".float_right");
 const cancelVoice=document.querySelector(".cancelvoice");
+let back;
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recorder =new SpeechRecognition();
@@ -138,7 +139,7 @@ const cplus=[
 const js=[
     {
         "progname":"JavaScript",
-        "imgurl":"images/programming/javascript.png"
+        "imgurl":"images/programming/javascript.jpg"
     },
     {
         "btn":"Mozilla",
@@ -389,7 +390,7 @@ let trigger = [
     ["programming java","code java","codding java","java programming","java code","java codding","java"],
     ["programming javascript","code javascript","codding javascript","javascript programming","javascript code","javascript codding","javascript"],
     ["programming python","code python","codding python","python programming","python code","python codding","python"],
-    ["programming php","code php","codding php","php programming","php code","php codding",php],
+    ["programming php","code php","codding php","php programming","php code","php codding","php"],
     ["academic writing", "writing", "language","academic language"],
     ["chi writing", "chi report","chi format"],
     ["critical thinking","thinking critically","think critically"],
@@ -598,6 +599,7 @@ function compare(arr, array, string){
     return item;
 }
 function generateButton(array){
+    back=array;
     const chatList =document.createElement('div');
     chatList.classList.add("chat_list");
     const chatPeople= document.createElement('div');
@@ -627,7 +629,7 @@ function generateButton(array){
                 const speech = new SpeechSynthesisUtterance();
                 speech.text = "Programming on " + array[i][0].progname;
                 window.speechSynthesis.speak(speech);
-                helpDiv.appendChild(genPrograming(array[i]));
+                helpDiv.appendChild(genPrograming(array[i],back));
 
 
             });
@@ -677,7 +679,7 @@ function generateButton(array){
                     const speech = new SpeechSynthesisUtterance();
                     speech.text = "Check your help area for options on " + array[i].btn;
                     window.speechSynthesis.speak(speech);
-                    helpDiv.appendChild(generateReference(array[i]))
+                    helpDiv.appendChild(generateReference(array[i],back))
                 });
 
 
@@ -693,7 +695,12 @@ function generateButton(array){
 
 }
 
-function generateReference(array){
+function generateReference(array,page=null){
+    let backBtn=null;
+    console.log(page)
+    if(page!=null){
+        backBtn=genBackButton(page)
+    }
     const refCard=document.createElement("div");
     refCard.classList.add("card");
     const cardHeader=document.createElement("h5");
@@ -747,12 +754,19 @@ function generateReference(array){
     const moreInfoText=document.createTextNode("More info");
     anchorLink.appendChild(moreInfoText);
     cardBody.appendChild(anchorLink);
+    if(backBtn!=null){
+        refCard.appendChild(backBtn);
+    }
     refCard.appendChild(cardHeader);
     refCard.appendChild(cardBody);
     return refCard;
 }
 
-function genPrograming(array){
+function genPrograming(array,page=null){
+    let backBtn=null;
+    if(page!=null){
+        backBtn=genBackButton(page)
+    }
     const refCard=document.createElement("div");
     refCard.classList.add("card");
     const cardHeader=document.createElement("h5");
@@ -780,9 +794,11 @@ function genPrograming(array){
         anchorLink.appendChild(btnInfo);
         cardBody.appendChild(anchorLink);
     }
+    if(backBtn!=null){
+        refCard.appendChild(backBtn);
+    }
     refCard.appendChild(cardHeader);
     refCard.appendChild(cardBody);
-    console.log(refCard);
     return refCard;
 }
 
@@ -928,6 +944,20 @@ cancelVoice.addEventListener('click',()=>{
     voice.style.display="block";
 
 });
+
+function genBackButton(page){
+    const backBtn =document.createElement('a')
+    backBtn.classList.add("btn");
+    backBtn.classList.add("btn-info");
+    backBtn.classList.add("backButton")
+    const  backBtnTxt=document.createTextNode("Back");
+    backBtn.appendChild(backBtnTxt);
+    backBtn.addEventListener('click',()=>{
+        clearHelp(helpDiv);
+        helpDiv.appendChild(generateButton(page));
+    })
+    return backBtn;
+}
 
 
 
