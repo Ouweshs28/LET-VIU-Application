@@ -170,3 +170,9 @@ img{ max-width:100%;}
 .btnProg{
     margin-right: 10px;
 }
+
+.closeBtn{
+    margin: 10px;
+    float: right;
+    color: white;
+}

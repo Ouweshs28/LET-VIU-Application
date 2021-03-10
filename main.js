@@ -250,7 +250,7 @@ const litreview={
     "name":"Literature Review",
     "criteria":"images/accadmicwritting/litreview-aim.png",
     "example":"images/accadmicwritting/litreview.png",
-    "url":"https://leumdxmru.edublogs.org/letsson/what-is-a-literature-review/",
+    "localurl":"pages/litreview.html",
 }
 
 const report={
@@ -259,7 +259,7 @@ const report={
     "name":"Report Writting",
     "criteria":"images/accadmicwritting/report.png",
     "example":"images/accadmicwritting/report-2.png",
-    "url":"https://leumdxmru.edublogs.org/letsson/complete-report-writing-tips-joy-mbeseka-ahmed-m-sc-bism-student/",
+    "localurl":"pages/report.html",
 
 }
 
@@ -269,7 +269,7 @@ const paraphrase={
     "name":"Paraphrasing",
     "criteria":"images/accadmicwritting/paraphrasing.png",
     "example":"images/accadmicwritting/paraphrasing-2.png",
-    "url":"https://leumdxmru.edublogs.org/letsson/paraphrase-and-summary/",
+    "localurl":"pages/paraphrase.html",
 }
 
 const chi={
@@ -296,7 +296,7 @@ const essay={
     "name":"Essay Writting",
     "criteria":"images/accadmicwritting/essay.png",
     "example":"images/accadmicwritting/essay-2.png",
-    "url":"https://leumdxmru.edublogs.org/helping-you/essay-structure/",
+    "localurl":"pages/essay.html",
 }
 
 const plagiarism={
@@ -305,7 +305,7 @@ const plagiarism={
     "name":"Plagiarism",
     "criteria":"images/accadmicwritting/plagarism.png",
     "example":"images/accadmicwritting/plagarism-2.png",
-    "url":"https://leumdxmru.edublogs.org/helping-you/what-is-plagiarism-article-sponsored-by-turnitin/",
+    "localurl":"pages/plagiarism.html",
 }
 
 //contact us
@@ -482,19 +482,19 @@ function compare(arr, array, string){
                         break;
                     case 3:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(webpages.name,webpages.criteria,webpages.example,webpages.url));
+                        helpDiv.appendChild(generateReference(webpages));
                         break;
                     case 4:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(books.name,books.criteria,books.example,books.url));
+                        helpDiv.appendChild(generateReference(books));
                         break;
                     case 5:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(ebook.name,ebook.criteria,ebook.example,ebook.url));
+                        helpDiv.appendChild(generateReference(ebook));
                         break;
                     case 6:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(journal.name,journal.criteria,journal.example,journal.url));
+                        helpDiv.appendChild(generateReference(journal));
                         break;
                     case 7:
                         clearHelp(helpDiv);
@@ -538,31 +538,31 @@ function compare(arr, array, string){
                         break;
                     case 17:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(chi.name,chi.criteria,chi.example,chi.url));
+                        helpDiv.appendChild(generateReference(chi));
                         break;
                     case 18:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(criticalthinking.name,criticalthinking.criteria,criticalthinking.example,criticalthinking.url));
+                        helpDiv.appendChild(generateReference(criticalthinking));
                         break;
                     case 19:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(essay.name,essay.criteria,essay.example,essay.url));
+                        helpDiv.appendChild(generateReference(essay));
                         break;
                     case 20:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(litreview.name,litreview.criteria,litreview.example,litreview.url));
+                        helpDiv.appendChild(generateReference(litreview));
                         break;
                     case 21:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(paraphrase.name,paraphrase.criteria,paraphrase.example,paraphrase.url));
+                        helpDiv.appendChild(generateReference(paraphrase));
                         break;
                     case 22:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(plagiarism.name,plagiarism.criteria,plagiarism.example,plagiarism.url));
+                        helpDiv.appendChild(generateReference(plagiarism));
                         break;
                     case 23:
                         clearHelp(helpDiv);
-                        helpDiv.appendChild(generateReference(report.name,report.criteria,report.example,report.url));
+                        helpDiv.appendChild(generateReference(report));
                         break;
                     case 24:
                         clearHelp(helpDiv);
@@ -674,7 +674,7 @@ function generateButton(array){
                     const speech = new SpeechSynthesisUtterance();
                     speech.text = "Check your help area for options on " + array[i].btn;
                     window.speechSynthesis.speak(speech);
-                    helpDiv.appendChild(generateReference(array[i].name,array[i].criteria,array[i].example,array[i].url))
+                    helpDiv.appendChild(generateReference(array[i]))
                 });
 
 
@@ -690,30 +690,57 @@ function generateButton(array){
 
 }
 
-function generateReference(title, criteria, example,url){
+function generateReference(array){
     const refCard=document.createElement("div");
     refCard.classList.add("card");
     const cardHeader=document.createElement("h5");
     cardHeader.classList.add("card-header");
     cardHeader.classList.add("text-black-50");
-    const refText=document.createTextNode(title);
+    const refText=document.createTextNode(array.name);
     cardHeader.appendChild(refText);
     const cardBody=document.createElement('div');
     cardBody.classList.add("card-body");
     const cardPara=document.createElement("p");
     cardPara.classList.add("card-text");
     const criteriaImg = document.createElement('img');
-    criteriaImg.src = criteria;
+    criteriaImg.src = array.criteria;
     const criteriaEx = document.createElement('img');
-    criteriaEx.src = example;
+    criteriaEx.src = array.example;
     cardPara.appendChild(criteriaImg);
     cardPara.appendChild(criteriaEx);
     cardBody.appendChild(cardPara);
     const anchorLink =document.createElement("a");
-    anchorLink.href=url;
     anchorLink.classList.add("btn");
     anchorLink.classList.add("btn-primary");
-    anchorLink.target='_blank'
+    if(array.localurl!=undefined){
+        //anchorLink.href=url;
+        anchorLink.dataset.target="#blogref";
+        anchorLink.dataset.toggle="modal";
+        //anchorLink.target='_blank'
+        anchorLink.addEventListener('click', () => {
+            clearHelp(helpDiv);
+            const iframe=document.createElement('iframe');
+            iframe.src=array.localurl;
+            iframe.width="100%";
+            iframe.height="80%"
+            const anchorLink =document.createElement("a");
+            anchorLink.classList.add("btn");
+            anchorLink.classList.add("btn-danger");
+            anchorLink.classList.add("closeBtn")
+            const btnText=document.createTextNode("Close");
+            anchorLink.appendChild(btnText)
+            anchorLink.addEventListener("click",()=>{
+                clearHelp(helpDiv);
+            });
+
+            helpDiv.appendChild(anchorLink);
+            helpDiv.appendChild(iframe);
+        });
+    }else{
+        anchorLink.href=array.url;
+        anchorLink.target='_blank'
+    }
+
     const moreInfoText=document.createTextNode("More info");
     anchorLink.appendChild(moreInfoText);
     cardBody.appendChild(anchorLink);
