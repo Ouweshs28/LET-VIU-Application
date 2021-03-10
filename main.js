@@ -435,7 +435,7 @@ let reply = [
     ["Redirecting to email application, type your email", "Opening the email application, type your email  in a new tab"],
     ["Bye", "Goodbye", "See you later"]
 ];
-let alternative = ["Haha...", "Sorry excuse me"];
+let alternative = ["Sorry this command is not valid please check the help button for commands", "Sorry i could not understand, please check commands available","Unfortunately, this command is not valid, please try again"];
 
 let commands=[
     {
