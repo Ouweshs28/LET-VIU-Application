@@ -4,6 +4,7 @@ const voice2Text=document.querySelector(".voice2Text");
 const helpDiv=document.querySelector(".inbox_chat");
 const chatInput=document.querySelector(".write_msg")
 const micIcon=document.querySelector(".float_right");
+const cancelVoice=document.querySelector(".cancelvoice");
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recorder =new SpeechRecognition();
@@ -381,14 +382,14 @@ let trigger = [
     ["reference e-books","reference e-book","reference electronic book","reference electronic books","referencing ebooks","referencing e-books","referencing e-book","cite ebook","cite ebooks","cite e-book","cite e-books","cite electronic book","cite electronic books"],
     ["reference journal","reference journals","reference article","reference articles","referencing journal","referencing journals","referencing article","referencing articles","cite journal","cite journals","cite article","cite articles"],
     ["programming", "code","codding"],
-    ["programming arduino","code arduino","codding arduino","arduino programming","arduino code","arduino codding"],
+    ["programming arduino","code arduino","codding arduino","arduino programming","arduino code","arduino codding","arduino"],
     ["programming c++","code c++","codding c++","c++ programming","c++ code","c++ codding"],
     ["programming c","code c","codding c","c programming","c code","c codding"],
     ["programming html","code html","codding html","html programming","html code","html codding"],
-    ["programming java","code java","codding java","java programming","java code","java codding"],
-    ["programming javascript","code javascript","codding javascript","javascript programming","javascript code","javascript codding"],
-    ["programming python","code python","codding python","python programming","python code","python codding"],
-    ["programming php","code php","codding php","php programming","php code","php codding"],
+    ["programming java","code java","codding java","java programming","java code","java codding","java"],
+    ["programming javascript","code javascript","codding javascript","javascript programming","javascript code","javascript codding","javascript"],
+    ["programming python","code python","codding python","python programming","python code","python codding","python"],
+    ["programming php","code php","codding php","php programming","php code","php codding",php],
     ["academic writing", "writing", "language","academic language"],
     ["chi writing", "chi report","chi format"],
     ["critical thinking","thinking critically","think critically"],
@@ -879,7 +880,8 @@ function botReply(message){
 
 
 recorder.onresult = (event) =>{
-    micIcon.style.background="#05728f";
+    cancelVoice.style.display="none";
+    voice.style.display="block";
    const resultIndex=event.resultIndex;
    const  transcript =event.results[resultIndex][0].transcript;
    //console.log(event);
@@ -916,7 +918,17 @@ chatInput.addEventListener("keyup", function(event) {
 
 voice.addEventListener('click',()=>{
     recorder.start();
-    micIcon.style.background="#00ff00";
+    voice.style.display="none";
+    cancelVoice.style.display="block";
 });
+
+cancelVoice.addEventListener('click',()=>{
+    recorder.stop();
+    cancelVoice.style.display="none";
+    voice.style.display="block";
+
+});
+
+
 
 
