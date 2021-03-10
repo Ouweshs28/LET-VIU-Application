@@ -5,7 +5,10 @@ const helpDiv=document.querySelector(".inbox_chat");
 const chatInput=document.querySelector(".write_msg")
 const micIcon=document.querySelector(".float_right");
 const cancelVoice=document.querySelector(".cancelvoice");
+const muteVoice=document.querySelector(".mute");
+const enableVoice=document.querySelector(".float_vol")
 let back;
+let voicenabled=1;
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recorder =new SpeechRecognition();
@@ -873,7 +876,7 @@ function botReply(message){
     }
 
 
-    speech.volume=1;
+    speech.volume=voicenabled;
     speech.pitch=1;
     speech.rate=1;
     window.speechSynthesis.speak(speech);
@@ -947,6 +950,19 @@ function genBackButton(page){
     return backBtn;
 }
 
+enableVoice.addEventListener('click',()=>{
+    enableVoice.style.display="none";
+    muteVoice.style.display="block";
+    voicenabled=0;
+
+});
+
+muteVoice.addEventListener('click',()=>{
+    muteVoice.style.display="none";
+    enableVoice.style.display="block";
+    voicenabled=1;
+
+});
 
 
 
