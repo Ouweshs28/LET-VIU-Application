@@ -376,7 +376,7 @@ let trigger = [
     ["hi","hey","hello"],
     ["help","you help", "guide", "assist","commands","commands available"],
     ["reference", "citation", "bibliography","referencing","cite"],
-    ["reference websites","reference website","reference webpages","reference webpage", "reference online","referencing online","cite website","cite websites","cite webpages","cite webpage"],
+    ["reference websites","reference website","reference webpages","reference webpage", "reference online","referencing website","referencing websites","referencing online","cite website","cite websites","cite webpages","cite webpage"],
     ["reference books","reference book", "referencing books","cite book","cite books"],
     ["reference e-books","reference e-book","reference electronic book","reference electronic books","referencing ebooks","referencing e-books","referencing e-book","cite ebook","cite ebooks","cite e-book","cite e-books","cite electronic book","cite electronic books"],
     ["reference journal","reference journals","reference article","reference articles","referencing journal","referencing journals","referencing article","referencing articles","cite journal","cite journals","cite article","cite articles"],
