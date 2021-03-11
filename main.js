@@ -6,9 +6,11 @@ const chatInput=document.querySelector(".write_msg")
 const micIcon=document.querySelector(".float_right");
 const cancelVoice=document.querySelector(".cancelvoice");
 const muteVoice=document.querySelector(".mute");
-const enableVoice=document.querySelector(".float_vol")
+const enableVoice=document.querySelector(".float_vol");
 let back;
 let voicenabled=1;
+let disableBtn=document.querySelector(".dismiss");
+let disableHelp=true;
 
 const  SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recorder =new SpeechRecognition();
@@ -441,7 +443,7 @@ let reply = [
     ["Redirecting to email application, type your email", "Opening the email application, type your email in a new tab"],
     ["Bye", "Goodbye", "See you later"]
 ];
-let alternative = ["Sorry this command is not valid please check the help button for commands", "Sorry i could not understand, please check commands available","Unfortunately, this command is not valid, please try again"];
+let alternative = ["Sorry this command is not valid please check the help button for commands", "Opps, i could not understand try typing instead.","Unfortunately, this command is not valid, please try again"];
 
 let commands=[
     {
@@ -847,9 +849,10 @@ function generateBotChat(text){
 }
 
 function botReply(message){
+
     const speech= new SpeechSynthesisUtterance();
     speech.text="Sorry i cannot understand, please try again.";
-
+console.log(disableHelp);
     // logic
 
     let text = (message.toLowerCase()).replace(/[^\w\s\d]/gi, ""); //remove all chars except words, space and
@@ -870,9 +873,11 @@ function botReply(message){
     if(compare(trigger, reply, text)){
         speech.text = compare(trigger, reply, text);
     } else {
+        if(disableHelp) {
+            $('#exampleModalCenter').modal('show');
 
-        $('#exampleModalCenter').modal('show');
-        speech.text = alternative[Math.floor(Math.random()*alternative.length)];
+        }
+        speech.text = alternative[Math.floor(Math.random() * alternative.length)];
     }
 
 
@@ -964,5 +969,9 @@ muteVoice.addEventListener('click',()=>{
 
 });
 
+disableBtn.addEventListener('click',()=>{
+    disableHelp=!disableHelp;
+
+});
 
 
