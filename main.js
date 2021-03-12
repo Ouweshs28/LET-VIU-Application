@@ -381,21 +381,21 @@ const contact=[
 
 let trigger = [
     ["hi","hey","hello"],
-    ["help","you help", "guide", "assist","commands","commands available","help me"],
+    ["help", "help option", "help options","you help", "guide", "assist","commands","commands available","help me"],
     ["reference", "citation", "bibliography","referencing","cite"],
     ["reference websites","reference website","reference webpages","reference webpage", "reference online","referencing website","referencing websites","referencing online","cite website","cite websites","cite webpages","cite webpage"],
     ["reference books","reference book", "referencing books","cite book","cite books"],
     ["reference e-books","reference e-book","reference electronic book","reference electronic books","referencing ebooks","referencing e-books","referencing e-book","cite ebook","cite ebooks","cite e-book","cite e-books","cite electronic book","cite electronic books"],
     ["reference journal","reference journals","reference article","reference articles","referencing journal","referencing journals","referencing article","referencing articles","cite journal","cite journals","cite article","cite articles"],
-    ["programming", "code","codding"],
-    ["programming arduino","code arduino","codding arduino","arduino programming","arduino code","arduino codding","arduino"],
-    ["programming c++","code c++","codding c++","c++ programming","c++ code","c++ codding"],
-    ["programming c","code c","codding c","c programming","c code","c codding"],
-    ["programming html","code html","codding html","html programming","html code","html codding"],
-    ["programming java","code java","codding java","java programming","java code","java codding","java"],
-    ["programming javascript","code javascript","codding javascript","javascript programming","javascript code","javascript codding","javascript"],
-    ["programming python","code python","codding python","python programming","python code","python codding","python"],
-    ["programming php","code php","codding php","php programming","php code","php codding","php"],
+    ["programming", "code","coding"],
+    ["programming arduino","code arduino","coding arduino","arduino programming","arduino code","arduino coding","arduino"],
+    ["programming c++","code c++","coding c++","c++ programming","c++ code","c++ coding","c++"],
+    ["programming c","code c","coding c","c programming","c code","c coding"],
+    ["programming html","code html","coding html","html programming","html code","html coding","html"],
+    ["programming java","code java","coding java","java programming","java code","java coding","java"],
+    ["programming javascript","code javascript","coding javascript","javascript programming","javascript code","javascript coding","javascript"],
+    ["programming python","code python","coding python","python programming","python code","python coding","python"],
+    ["programming php","code php","coding php","php programming","php code","php coding","php"],
     ["academic writing", "writing", "language","academic language"],
     ["chi writing", "chi report","chi format"],
     ["critical thinking","thinking critically","think critically"],
@@ -855,24 +855,29 @@ function botReply(message){
 
     let text = (message.toLowerCase()).replace(/[^\w\s\d]/gi, ""); //remove all chars except words, space and
     text = text.replace(/ a /g, " ")
+    text = text.replace(/help in /g, "")
     text = text.replace(/ for /g, " ")
     text = text.replace(/ an /g, " ")
-        .replace(/ help/g, "")
+    text = text.replace(/ in /g, " ")
+    text = text.replace(/ the /g, " ")
+        //.replace(/help /g, "")
         .replace(/ tips/g, "")
         .replace(/ tip/g, "")
         .replace(/ advice/g, "")
         .replace(/i feel /g, "")
         .replace(/what are /g, "")
+        .replace(/i need some help /g, "")
         .replace(/what is /g, "")
         .replace(/please /g, "")
+        .replace(/how can you /g, "")
+        .replace(/how can i /g, "")
         .replace(/how can /g, "")
         .replace(/how to /g, "")
+        .replace(/can you /g, "")
         .replace(/i need help with /g, "")
-        .replace(/i want to learn /g, "")
         .replace(/i want to learn /g, "")
         .replace(/how to /g, "")
         .replace(/help me with /g, "")
-        .replace(/help /g, "")
         .replace(/how do i /g, "")
         .replace(/i need some /g, "")
         .replace(/i have some /g, "")
@@ -885,8 +890,13 @@ function botReply(message){
         .replace(/need /g, "")
         .replace(/ issues/g, "")
         .replace(/ issue/g, "")
+        .replace(/ problems/g, "")
+        .replace(/ problem/g, "")
         .replace(/with /g, "")
-        .replace(/i am struggling with /g, "");
+        .replace(/show me /g, "")
+        .replace(/i am having /g, "")
+        .replace(/i am struggling /g, "");
+
 
 
         console.log(text);
