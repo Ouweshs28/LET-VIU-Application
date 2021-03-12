@@ -883,6 +883,7 @@ function botReply(message){
         .replace(/i have some /g, "")
         .replace(/i need to /g, "")
         .replace(/i need advice with /g, "")
+        .replace(/i need /g, "")
         .replace(/with /g, "")
         .replace(/advice /g, "")
         .replace(/tips /g, "")
