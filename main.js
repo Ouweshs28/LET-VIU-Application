@@ -228,7 +228,7 @@ const books={
     "id":"book",
     "btn":"Book",
     "name":"Printed books",
-    "criteria":"images/referencing/book-criteria.PNG",
+    "criteria":"images/referencing/book-criteria.png",
     "example":"images/referencing/book.PNG",
     "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/books/printed-books",
 }
@@ -237,8 +237,8 @@ const journal={
     "id":"journal",
     "btn":"Journal",
     "name":"Journal articles",
-    "criteria":"images/referencing/journal-criteria.PNG",
-    "example":"images/referencing/journal.PNG",
+    "criteria":"images/referencing/journal-criteria.png",
+    "example":"images/referencing/journal.png",
     "url":"https://www-citethemrightonline-com.ezproxy.mdx.ac.uk/journals/journal-articles",
 }
 
