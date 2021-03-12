@@ -381,7 +381,7 @@ const contact=[
 
 let trigger = [
     ["hi","hey","hello"],
-    ["help","you help", "guide", "assist","commands","commands available"],
+    ["help","you help", "guide", "assist","commands","commands available","help me"],
     ["reference", "citation", "bibliography","referencing","cite"],
     ["reference websites","reference website","reference webpages","reference webpage", "reference online","referencing website","referencing websites","referencing online","cite website","cite websites","cite webpages","cite webpage"],
     ["reference books","reference book", "referencing books","cite book","cite books"],
@@ -403,8 +403,8 @@ let trigger = [
     ["writing literature review","literature review writing","literature review","lit review"],
     ["paraphrase","paraphrasing", "re-write", "re write","rephrase","rephrasing"],
     ["plagiarism","plagiarise", "plagiarising"],
-    ["writing report","report writing","report","reports"],
-    ["contact", "social media", "reach let","reach the team"],
+    ["writing report","report writing","report","reports","write report"],
+    ["contact us", "social media", "reach let","reach the team","contact let"],
     ["facebook", "fb"],
     ["instagram", "insta"],
     ["appointment", "meeting","consultation","session","appointments", "meetings","consultations","sessions"],
@@ -412,7 +412,7 @@ let trigger = [
     ["bye", "good bye", "goodbye", "see you later"]
 ];
 let reply = [
-    ["Hi, I am the LET Student Advisor","Hey, I am the LET Student Advisor, I am here to help you","Hello, I am the LET Student Advisor, here to assist you"],
+    ["Hi, I am the LET Student Advisor, you can find commands available on the left help button","Hey, I am the LET Student Advisor, to guide you please find the help button on the left bottom","Hello, I am the LET Student Advisor, here to assist you, to see how I can offer help please check the help button on the left"],
     ["Here are available commands in the help area, please choose", "Find in the help area some options, please make a selection", "You can find options in the help area, make a choice"],
     ["Here are available referencing guides in the help area, please make a selection", "Find in the help area some guides on referencing, choose the one you want help with", "You can find options on referencing in the help area, make a choice"],
     ["You can find how to reference a website in the help area, if you need more help click on more info", "Find in the help area on referencing websites, if you require more assistance please click on more info button", "You can find how to reference websites in the help area, if you need more help click on more info button"],
@@ -443,7 +443,7 @@ let reply = [
     ["Redirecting to email application, type your email", "Opening the email application, type your email in a new tab"],
     ["Bye", "Goodbye", "See you later"]
 ];
-let alternative = ["Sorry this command is not valid please check the help button for commands", "Opps, i could not understand try typing instead.","Unfortunately, this command is not valid, please try again"];
+let alternative = ["Sorry this command is not valid please check the help button for commands", "Oh no, i could not understand try typing instead.","Unfortunately, this command is not valid, please try again"];
 
 let commands=[
     {
@@ -632,7 +632,6 @@ function generateButton(array){
                 elem.appendChild(generateChat(array[i][0].progname));
                 elem.appendChild(generateBotChat("Programming on " + array[i][0].progname));
                 helpDiv.appendChild(genPrograming(array[i],back));
-
 
             });
         }else {
@@ -852,22 +851,45 @@ function botReply(message){
 
     const speech= new SpeechSynthesisUtterance();
     speech.text="Sorry i cannot understand, please try again.";
-console.log(disableHelp);
     // logic
 
     let text = (message.toLowerCase()).replace(/[^\w\s\d]/gi, ""); //remove all chars except words, space and
     text = text.replace(/ a /g, " ")
+    text = text.replace(/ for /g, " ")
+    text = text.replace(/ an /g, " ")
+        .replace(/ help/g, "")
+        .replace(/ tips/g, "")
+        .replace(/ tip/g, "")
+        .replace(/ advice/g, "")
         .replace(/i feel /g, "")
         .replace(/what are /g, "")
-        .replace(/whats/g, "what is")
+        .replace(/what is /g, "")
         .replace(/please /g, "")
         .replace(/how can /g, "")
         .replace(/how to /g, "")
         .replace(/i need help with /g, "")
+        .replace(/i want to learn /g, "")
+        .replace(/i want to learn /g, "")
+        .replace(/how to /g, "")
         .replace(/help me with /g, "")
         .replace(/help /g, "")
-        .replace(/can you /g, "")
+        .replace(/how do i /g, "")
+        .replace(/i need some /g, "")
+        .replace(/i have some /g, "")
+        .replace(/i need to /g, "")
+        .replace(/i need advice with /g, "")
+        .replace(/with /g, "")
+        .replace(/advice /g, "")
+        .replace(/tips /g, "")
+        .replace(/write /g, "")
+        .replace(/need /g, "")
+        .replace(/ issues/g, "")
+        .replace(/ issue/g, "")
+        .replace(/with /g, "")
         .replace(/i am struggling with /g, "");
+
+
+        console.log(text);
 
 
     if(compare(trigger, reply, text)){
