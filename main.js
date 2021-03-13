@@ -380,7 +380,7 @@ const contact=[
 ]
 
 let trigger = [
-    ["hi","hey","hello"],
+    ["hey","hello"],
     ["help", "help option", "help options","you help", "guide", "assist","commands","commands available","help me"],
     ["reference", "citation", "bibliography","referencing","cite"],
     ["reference websites","reference website","reference webpages","reference webpage", "reference online","referencing website","referencing websites","referencing online","cite website","cite websites","cite webpages","cite webpage"],
@@ -407,7 +407,7 @@ let trigger = [
     ["contact us", "social media", "reach let","reach the team","contact let"],
     ["facebook", "fb"],
     ["instagram", "insta"],
-    ["appointment", "meeting","consultation","session","appointments", "meetings","consultations","sessions","contact"],
+    ["appointment", "meeting","consultation","session","appointments", "meetings","consultations","sessions"],
     ["email", "emails","e-mails","e-mail"],
     ["bye", "good bye", "goodbye", "see you later"]
 ];
