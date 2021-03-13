@@ -407,7 +407,7 @@ let trigger = [
     ["contact us", "social media", "reach let","reach the team","contact let"],
     ["facebook", "fb"],
     ["instagram", "insta"],
-    ["appointment", "meeting","consultation","session","appointments", "meetings","consultations","sessions"],
+    ["appointment", "meeting","consultation","session","appointments", "meetings","consultations","sessions","contact"],
     ["email", "emails","e-mails","e-mail"],
     ["bye", "good bye", "goodbye", "see you later"]
 ];
