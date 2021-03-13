@@ -477,7 +477,7 @@ function compare(arr, array, string){
     console.log(string);
     for(let x=0; x<arr.length; x++){
         for(let y=0; y<array.length; y++){
-            if(arr[x][y] == string){
+            if(arr[x][y] == string || string.includes(arr[x][y]) ){
                 console.log(x)
                 switch(x) {
                     case 1:
