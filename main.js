@@ -868,6 +868,7 @@ function botReply(message){
         .replace(/what are /g, "")
         .replace(/i need some help /g, "")
         .replace(/what is /g, "")
+        .replace(/hi /g, "hello")
         .replace(/please /g, "")
         .replace(/how can you /g, "")
         .replace(/how can i /g, "")
