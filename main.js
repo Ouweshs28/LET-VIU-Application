@@ -806,7 +806,7 @@ function generateChat(text){
     const spanDate=document.createElement('span');
     spanDate.classList.add("time_date");
     const today = new Date();
-    let time = today.getHours() + ":" + today.getMinutes();
+    let time = today.getHours().toString().padStart(2, '0') + ":" + today.getMinutes().toString().padStart(2, '0');
     const dateText=document.createTextNode(time);
     spanDate.appendChild(dateText);
     sentMsg.appendChild(paraChat);
